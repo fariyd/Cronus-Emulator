@@ -1426,7 +1426,7 @@
 2551,Rider_Insignia_M,Crest of the Rider,5,20,,500,,4,,1,0xFFFFFFFE,2,2,4,,55,1,0,{ bonus bAgi,2; if (isequipped(2425) || isequipped(2434)) bonus bFlee,10; },{},{}
 2552,Mithril_Magic_Cape_M,Mithril Magic Manteau,5,20,,400,,3,,1,0x00098B1C,2,2,4,,70,1,0,{ bonus bMdef,3; bonus5 bAutoSpellWhenHit,"NPC_ANTIMAGIC",1,200,BF_MAGIC,0; },{},{}
 2553,Dragon_Manteau,Dragon Manteau,5,20,,1000,,5,,1,0xFFFFFFFE,2,2,4,,0,1,0,{ bonus bAgi,1; bonus bMdef,5; },{},{}
-2554,Piece_Of_Angent_Skin,Nydhorgg's Shadow Garb,5,20,,400,,5,,1,0xFFFFFFFE,2,2,4,,90,1,0,{ bonus2 bSubEle,Ele_Neutral,7; bonus2 bSubEle,Ele_Water,7; bonus2 bSubEle,Ele_Earth,7; bonus2 bSubEle,Ele_Fire,7; bonus2 bSubEle,Ele_Wind,7; bonus2 bSubEle,Ele_Poison,7; bonus2 bSubEle,Ele_Holy,7; bonus2 bSubEle,Ele_Dark,7; bonus2 bSubEle,Ele_Ghost,7; bonus2 bSubEle,Ele_Undead,7; bonus bMaxSP,(BaseLevel/3)+(getrefine()*10); bonus3 bSPDrainRate,1,1,0; bonus bMdef,3; },{},{}
+2554,Piece_Of_Angent_Skin,Nydhorgg's Shadow Garb,5,20,,400,,5,,1,0xFFFFFFFE,2,2,4,,90,1,0,{ bonus2 bSubEle,Ele_Neutral,7; bonus2 bSubEle,Ele_Water,7; bonus2 bSubEle,Ele_Earth,7; bonus2 bSubEle,Ele_Fire,7; bonus2 bSubEle,Ele_Wind,7; bonus2 bSubEle,Ele_Poison,7; bonus2 bSubEle,Ele_Holy,7; bonus2 bSubEle,Ele_Dark,7; bonus2 bSubEle,Ele_Ghost,7; bonus2 bSubEle,Ele_Undead,7; bonus bMaxSP,(BaseLevel/3)+(getrefine()*10); bonus3 bSPDrainRate,10,1,0; bonus bMdef,3; },{},{}
 // Accessories
 //===================================================================
 2601,Ring,Ring,5,30000,,100,,0,,0,0xFFFFFFFE,7,2,136,,20,0,0,{ bonus bStr,2; },{},{}
@@ -4153,7 +4153,7 @@
 7801,Girl_Fan_Letter,Girl's Letter,3,0,,0,,,,,,,,,,,,,{},{},{}
 7802,Autograph_Book,Signature Notebook,3,0,,0,,,,,,,,,,,,,{},{},{}
 7803,Battle_Manual_TW,Beginner's Field Manual,3,0,,10,,,,,,,,,,,,,{},{},{}
-//7804,¼öÇà_Áõ¸í¼­,¼öÇà_Áõ¸í¼­,3,,,10,,,,,,,,,,,,,{},{},{}
+//7804,????_???,????_???,3,,,10,,,,,,,,,,,,,{},{},{}
 7805,Brown_Ring,Brown Jenoss's Family Ring,3,0,,10,,,,,,,,,,,,,{},{},{}
 7806,Black_Anvil,God Anvil,3,0,,10,,,,,,,,,,,,,{},{},{}
 7807,Ore,God Mineral,3,0,,10,,,,,,,,,,,,,{},{},{}
@@ -5909,13 +5909,13 @@
 13915,Love_Angel_Box,Love Angel Magic Powder Box,18,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ rentitem 12287,604800; },{},{}
 13916,Squirrel_Box,Squirrel Magic Powder Box,18,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ rentitem 12288,604800; },{},{}
 13917,Gogo_Box,Gogo Magic Powder Box,18,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ rentitem 12289,604800; },{},{}
-//13918, Drooping_W_Kitty_Box ,Koneko Hat Box,18,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 5372,1; },{},{}
-//13919, L_Magestic_Goat_Box ,Baphomet Horns Box,18,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 5374,1; },{},{}
-//13920, Satanic_Chain_P_Box ,Flying Evil Wing Box,18,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 5376,1; },{},{}
-//13921, Antique_Pipe_Box ,Gentleman's Pipe Box,18,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 5377,1; },{},{}
-//13922, Rabbit_Ear_Hat_Box ,Bunny Top Hat Box,18,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 5378,1; },{},{}
-//13923, Darkness_Helm_Box ,Dark Randgris Helm Box,18,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 5373,1; },{},{}
-//13924, L_Orc_Hero_Helm_Box ,Orc Hero Headdress Box,18,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 5375,1; },{},{}
+//13918,?Drooping_W_Kitty_Box?,Koneko Hat Box,18,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 5372,1; },{},{}
+//13919,?L_Magestic_Goat_Box?,Baphomet Horns Box,18,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 5374,1; },{},{}
+//13920,?Satanic_Chain_P_Box?,Flying Evil Wing Box,18,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 5376,1; },{},{}
+//13921,?Antique_Pipe_Box?,Gentleman's Pipe Box,18,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 5377,1; },{},{}
+//13922,?Rabbit_Ear_Hat_Box?,Bunny Top Hat Box,18,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 5378,1; },{},{}
+//13923,?Darkness_Helm_Box?,Dark Randgris Helm Box,18,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 5373,1; },{},{}
+//13924,?L_Orc_Hero_Helm_Box?,Orc Hero Headdress Box,18,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 5375,1; },{},{}
 //13925,Year_Of_Mouse_Scroll,... GoodLuck Scroll,2,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
 13926,Crusader_Card_Box,Crusader Card Box,18,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 4371,1; getitem 4311,1; getitem 4319,1; getitem 4331,1; },{},{}
 13927,Alchemist_Card_Box,Alchemist Card Box,18,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 4281,1; getitem 4233,1; getitem 4343,1; getitem 4186,1; getitem 4036,1; },{},{}

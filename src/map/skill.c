@@ -813,6 +813,10 @@ int skill_additional_effect (struct block_list* src, struct block_list *bl, int 
 		sc_start(bl,SC_STUN,(6*skilllv),skilllv,skill_get_time2(skillid,skilllv));
 		break;
 
+	case RG_BACKSTAP:
+		sc_start(bl,SC_STUN,(3*skilllv),skilllv,skill_get_time(skillid,skilllv));
+		break;
+
 	case AS_VENOMKNIFE:
 		if (sd) //Poison chance must be that of Envenom. [Skotlex]
 			skilllv = pc_checkskill(sd, TF_POISON);
@@ -940,7 +944,7 @@ int skill_additional_effect (struct block_list* src, struct block_list *bl, int 
 		sc_start(bl,SC_BLIND,(10+3*skilllv),skilllv,skill_get_time2(skillid,skilllv));
 
 #ifdef RENEWAL
-		sc_start(bl,SC_RAID,100,7,5000);
+		sc_start(bl,SC_RAID,90,skilllv,skill_get_time(skillid,skilllv));
 #endif
 		break;
 
@@ -1137,8 +1141,11 @@ int skill_additional_effect (struct block_list* src, struct block_list *bl, int 
 	 * Arch Bishop
 	 **/
 	case AB_ADORAMUS:
+		rate = ((skilllv*4)+(int)sd->status.job_level/2);//Blind, Decrease AGI effect chance: [(SkillLvl x 4)+JobLV/2 ]% [L.Otoni]
 		if( tsc && !tsc->data[SC_DECREASEAGI] ) //Prevent duplicate agi-down effect.
-			sc_start(bl, SC_ADORAMUS, 100, skilllv, skill_get_time(skillid, skilllv));
+			sc_start(bl, SC_ADORAMUS, rate, skilllv, skill_get_time(skillid, skilllv));
+		if( tsc && !tsc->data[SC_BLIND] ) //Prevent duplicate blinds effect.
+			sc_start(bl, SC_BLIND, rate, skilllv, skill_get_time(skillid, skilllv));
 		break;
 	/**
 	 * Warlock
@@ -4623,12 +4630,15 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, in
 	 **/
 	case AB_HIGHNESSHEAL:
 		{
+		// Amount recovered is based on the HP recovered by Heal Lv. 10, further multiplied by a modifier based on skill level. [L.Otoni]
 			int heal = skill_calc_heal(src, bl, (skillid == AB_HIGHNESSHEAL)?AL_HEAL:skillid, (skillid == AB_HIGHNESSHEAL)?10:skilllv, true);
 			int heal_get_jobexp;
-			//Highness Heal: starts at 1.5 boost + 0.5 for each level 
-			if( skillid == AB_HIGHNESSHEAL ) {
-				heal = heal * ( 15 + 5 * skilllv ) / 10;
-			}
+	/**
+	* Highness Heal recovery Modifier [L.Otoni]
+	* starts at 2 boost + 0.3 for each level
+	**/
+			if( skillid == AB_HIGHNESSHEAL)
+				heal = heal * (2 + (0.3 * (skilllv - 1)));
 			if( status_isimmune(bl) ||
 					(dstmd && (dstmd->class_ == MOBID_EMPERIUM || mob_is_battleground(dstmd))) ||
 					(skillid == AL_HEAL && dstsd && dstsd->sc.option&OPTION_MADOGEAR) )//Mado is immune to AL_HEAL
@@ -6754,7 +6764,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, in
 
 	case PF_SOULCHANGE:
 		{
-			unsigned int sp1 = 0, sp2 = 0;
+			unsigned int sp1 = 0, sp2 = 0,sptotal=0;
 			if (dstmd) {
 				if (dstmd->state.soul_change_flag) {
 					if(sd) clif_skill_fail(sd,skillid,USESKILL_FAIL_LEVEL,0);
@@ -6766,11 +6776,18 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, in
 				clif_skill_nodamage(src,bl,skillid,skilllv,1);
 				break;
 			}
+	#ifdef RENEWAL
+		sptotal = sstatus->sp +tstatus->sp / 2;
+		status_set_sp(src, sptotal, 3);
+		status_set_sp(bl, sptotal, 3);
+		clif_skill_nodamage(src,bl,skillid,skilllv,1);
+		#else
 			sp1 = sstatus->sp;
 			sp2 = tstatus->sp;
 			status_set_sp(src, sp2, 3);
 			status_set_sp(bl, sp1, 3);
 			clif_skill_nodamage(src,bl,skillid,skilllv,1);
+		#endif
 		}
 		break;
 
@@ -7231,7 +7248,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, in
 		break;
 	case RK_ENCHANTBLADE:
 		clif_skill_nodamage(src,bl,skillid,skilllv,// formula not confirmed
-			sc_start2(bl,type,100,skilllv,100+20*skilllv/*+sstatus->int_/2+status_get_lv(bl)/10*/,skill_get_time(skillid,skilllv)));
+			sc_start2(bl,type,100,skilllv,(100+20*skilllv)*(status_get_lv(bl)/150)+sstatus->int_,skill_get_time(skillid,skilllv)));
 		break;
 	case RK_DRAGONHOWLING:
 		if( flag&1)
@@ -7430,14 +7447,13 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, in
 		break;
 
 	case AB_CHEAL:
-		if( sd == NULL || sd->status.party_id == 0 || flag&1 )
+		//Total Heal + [(Total Heal / 100) x (# of Party Members x 10) / 4]
+		if( sd == NULL || sd->status.party_id == 0 || (flag & 1) )
 		{
-			if( sd && tstatus && !battle_check_undead(tstatus->race, tstatus->def_ele) )
-			{
-				i = skill_calc_heal(src, bl, AL_HEAL, pc_checkskill(sd, AL_HEAL), true);
-				status_heal(bl, i, 0, 1);
-				clif_skill_nodamage(bl, bl, skillid, i, 1);
-			}
+			int party_count = 1 + party_foreachsamemap(party_sub_count, sd, 0); // Quantidade de players na Party ao alcance + o caster
+			int cheal = skill_calc_heal(src, bl, skillid, pc_checkskill(sd,AL_HEAL), true);
+			cheal += ((cheal / 100) * (party_count * 10)/4);
+			clif_skill_nodamage (src, bl, skillid, status_heal(bl,cheal,0,0), 1);
 		}
 		else if( sd )
 			party_foreachsamemap(skill_area_sub, sd, skill_get_splash(skillid, skilllv), src, skillid, skilllv, tick, flag|BCT_PARTY|1, skill_castend_nodamage_id);
@@ -10125,9 +10141,10 @@ struct skill_unit_group* skill_unitsetting (struct block_list *src, short skilli
 		}
 		break;
 	case DC_HUMMING:
-		val1 = 2*skilllv+status->dex/10; // Hit increase
 		#ifdef RENEWAL
-			val1 *= 2;
+			val1 = 2*skilllv+status->dex/10; // Hit increase
+		#else
+			val1 = 2*(2*skilllv+status->dex/10); // Hit increase
 		#endif
 		if(sd)
 			val1 += pc_checkskill(sd,DC_DANCINGLESSON);
@@ -10150,9 +10167,15 @@ struct skill_unit_group* skill_unitsetting (struct block_list *src, short skilli
 		}
 		break;
 	case BA_APPLEIDUN:
+		#ifdef RENEWAL
+			val1 = 30+5*skilllv+5*(status->vit/10); //formula do ReaM
+			if(sd)
+				val1 += 5*pc_checkskill(sd,BA_MUSICALLESSON);
+		#else
 		val1 = 5+2*skilllv+status->vit/10; // MaxHP percent increase
 		if(sd)
 			val1 += pc_checkskill(sd,BA_MUSICALLESSON);
+		#endif
 		break;
 	case DC_SERVICEFORYOU:
 		val1 = 15+skilllv+(status->int_/10); // MaxSP percent increase TO-DO: this INT bonus value is guessed

@@ -427,12 +427,11 @@ int battle_calc_damage(struct block_list *src,struct block_list *bl,struct Damag
 				} else
 					damage -= group->val2;
 				skill_delunitgroup(group);
-			#else
+			#endif//Na renovação a habilidade tambem pode ser cancelada pelo numero de hits[Sicks]
 				if (--group->val2<=0)
 					skill_delunitgroup(group);
 				d->dmg_lv = ATK_BLOCK;
 				return 0;
-			#endif
 			}
 			status_change_end(bl, SC_SAFETYWALL, INVALID_TIMER);
 		}
@@ -545,37 +544,35 @@ int battle_calc_damage(struct block_list *src,struct block_list *bl,struct Damag
 			return 0;
 		}
 
+
 		//Now damage increasing effects
 		if( sc->data[SC_AETERNA] && skill_num != PF_SOULBURN )
 		{
-			if( src->type != BL_MER || skill_num == 0 )
+			#ifdef RENEWAL
+				if(sce!=sc->data[SC_RAID])//Raid e Aeterna não funcionan juntos[Sicks]
+			 	{
+			#endif
+				if( src->type != BL_MER || skill_num == 0 )
 				damage <<= 1; // Lex Aeterna only doubles damage of regular attacks from mercenaries
 
-			if( skill_num != ASC_BREAKER || !(flag&BF_WEAPON) )
+				if( skill_num != ASC_BREAKER || !(flag&BF_WEAPON) )
 				status_change_end(bl, SC_AETERNA, INVALID_TIMER); //Shouldn't end until Breaker's non-weapon part connects.
-		}
-
-#ifdef RENEWAL
-		if( sc->data[SC_RAID] )
-		{
-			damage += 20*damage/100;
-
-			if (--sc->data[SC_RAID]->val1 == 0)
-				status_change_end(bl, SC_RAID, INVALID_TIMER);
-		}
-#endif
-
-		if( damage ) {
-
-			if( sc->data[SC_DEEPSLEEP] ) {
-				damage += damage / 2; // 1.5 times more damage while in Deep Sleep.
-				status_change_end(bl,SC_DEEPSLEEP,INVALID_TIMER);
+				}
 			}
+			#ifdef RENEWAL
+				if((sce=sc->data[SC_RAID]) && skill_num != PF_SOULBURN)
+					if(skill_num == 0)
+					{//Só funciona com ataques normais[Sicks]
 
-			if( sc->data[SC_VOICEOFSIREN] )
-				status_change_end(bl,SC_VOICEOFSIREN,INVALID_TIMER);
-		}
-
+	
+						if(sce->val2)//Checagem de Mvps[Sicks]
+						damage = damage * sce->val1 * 10/100;
+						else
+						damage = damage * sce->val1 * 20/100;
+					}
+					if(--(sce->val1) <= 0)
+						status_change_end(bl, SC_RAID, INVALID_TIMER);
+				#endif
 
 		//Finally damage reductions....
 		if( sc->data[SC_ASSUMPTIO] ) {
@@ -1892,7 +1889,11 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src,struct blo
 					skillratio += 100+100*skill_lv;
 					break;
 				case AS_SPLASHER:
+					#ifdef RENEWAL
+					skillratio += 400+75*skill_lv;//Na renovação o dano no nivel 10 aumentou de 1000% para 1250%[Sicks]
+					#else
 					skillratio += 400+50*skill_lv;
+					#endif
 					if(sd)
 						skillratio += 20 * pc_checkskill(sd,AS_POISONREACT);
 					break;
@@ -2026,11 +2027,11 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src,struct blo
 						int level = status_get_lv(src);
 						i = distance_bl(src,target);
 						if( i < 2 )
-							skillratio = 200 + 200 * skill_lv;
+							skillratio += 100 + 200 * skill_lv;
 						else if( i < 4 )
-							skillratio = 100 + 200 * skill_lv;
+							skillratio = 200 * skill_lv;
 						else
-							skillratio = 100 + 100 * skill_lv;
+							skillratio += 100 * skill_lv;
 						if( level > 100 )
 							skillratio += skillratio * (level - 100) / 200;
 						if( sstatus->rhw.ele == ELE_FIRE )
@@ -3143,8 +3144,11 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 
 		switch (skill_num)
 		{	//Calc base damage according to skill
-			case AL_HEAL:
 			case PR_BENEDICTIO:
+			ad.damage = skill_calc_heal(src, target, skill_num, skill_lv, false);
+			flag.imdef = 1;//a Skill não deve ser afetada pela defesa[Sicks]
+			break;
+			case AL_HEAL:
 			case PR_SANCTUARY:
 			/**
 			 * Arch Bishop
@@ -3203,9 +3207,14 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 
 				switch(skill_num){
 					case MG_NAPALMBEAT:
+						skillratio += skill_lv*10-30;
 					case MG_FIREBALL:
+						#ifdef RENEWAL
+						skillratio += 40+20*skill_lv;
+						#else
 						skillratio += skill_lv*10-30;
 						break;
+						#endif
 					case MG_SOULSTRIKE:
 						if (battle_check_undead(tstatus->race,tstatus->def_ele))
 							skillratio += 5*skill_lv;
@@ -3351,7 +3360,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						if( status_get_lv(src) > 100 ) skillratio += skillratio * (status_get_lv(src) - 100) / 200;	// Base level bonus.
 						break;
 					case AB_ADORAMUS:
-						skillratio += 400 + 100 * skill_lv;
+						skillratio += 500 + 100 * skill_lv;
 						if( status_get_lv(src) > 100 ) skillratio += skillratio * (status_get_lv(src) - 100) / 200;	// Base level bonus.
 						break;
 					case AB_DUPLELIGHT_MAGIC:

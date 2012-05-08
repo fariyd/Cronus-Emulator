@@ -1,8 +1,17 @@
-// Job-specific Values Database
-//
-// Structure of Database:
-// JobID,Weight,HPFactor,HPMultiplicator,SPFactor,Unarmed,Dagger,1HSword,2HSword,1HSpear,2HSpear,1HAxe,2HAxe,1HMace,2HMace(unused),Rod,Bow,Knuckle,Instrument,Whip,Book,Katar,Revolver,Rifle,Gatling Gun,Shotgun,Grenade Launcher,Fuuma Shuriken,2HStaff
-//
+//--------------------------------------------------------------
+// _________                                    
+// \_   ___ \_______  ____   ____  __ __  ______
+// /    \  \/\_  __ \/    \ /    \|  |  \/  ___/
+// \     \____|  | \(  ( ) )   |  \  |  /\___ \ 
+//  \______  /|__|   \____/|___|  /____//____  >
+//         \/                   \/           \/  
+//--------------------------------------------------------------
+// Banco de Dados de valores específicos para cada classe
+//--------------------------------------------------------------
+// Estrutura da Database:
+// ClasseID,FatorPeso,FatorHP,MultiplicadorHP,BaseHP1,BaseHP2,FatorHP2,FatorSP,BaseSP,Escudo,Soco,Adagas,Espadas(1M),Espadas(2M),Lanças(1M),Lanças(2M),Machados(1M),Machados(2M),Maças(1M),Maças(2M),Cajados(1M),Arcos,Soqueiras,Instrumentos,Chicotes,Livros,Katares,Revólveres,Rifles,Espingardas,MetralhadorasGatling,Lança-Granadas,ShurikensHuuma,Cajados(2M)
+//--------------------------------------------------------------
+
 // Novice
 0,	20000,0    ,500  ,100  ,500  ,650  ,700  ,2000 ,2000 ,2000 ,800  ,2000 ,700  ,700  ,650  ,2000 ,2000 ,2000 ,2000 ,2000 ,2000 ,2000 ,2000 ,2000 ,2000 ,2000 ,2000 , 650
 // Swordman

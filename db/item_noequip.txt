@@ -1,19 +1,30 @@
-// The equipment/items/cards restriction file 
-// here you define which items may not be used at PvP / GvG 
-// format: <item id>,<mode>
-// mode
-// 1    - restricted in normal maps
-// 2    - restricted in PVP
-// 4    - restricted in GVG
-// 8    - restricted in Battlegrounds
-// Restricted zones - they're configured by 'restricted <number>' mapflag
-// 32   - restricted in zone 1
-// 64   - restricted in zone 2
-// 128  - restricted in zone 3
-// 256  - restricted in zone 4
-// 512  - restricted in zone 5
-// 1024 - restricted in zone 6
-// 2048 - restricted in zone 7
+//--------------------------------------------------------------
+// _________                                    
+// \_   ___ \_______  ____   ____  __ __  ______
+// /    \  \/\_  __ \/    \ /    \|  |  \/  ___/
+// \     \____|  | \(  ( ) )   |  \  |  /\___ \ 
+//  \______  /|__|   \____/|___|  /____//____  >
+//         \/                   \/           \/  
+//--------------------------------------------------------------
+// Arquivo de Configuração para Restrição de Equipamentos/Itens/Cartas
+//--------------------------------------------------------------
+// Formato: <ItemID>,<Modo>
+// 
+// 01. Modo
+// 	1 = restrito em Mapas Comuns
+// 	2 = restrito em PVP
+//	4 = restrito em GVG
+//	8 = restrito na Batalha Campal
+//
+// 02. Zonas restritas: são configuradas pelo mapflag 'restricted <número>'
+// 	 32 = restrito na zona 1
+// 	 64 = restrito na zona 2
+//  128 = restrito na zona 3
+//  256 = restrito na zona 4
+//  512 = restrito na zona 5
+// 1024 = restrito na zona 6
+// 2048 = restrito na zona 7
+//--------------------------------------------------------------
 
 //Examples:
 //1201,1 you can't use KNIFE(ID 1201) on normal maps

@@ -1,4 +1,23 @@
-//JobNo,Skill-ID,MaxLV{,JobLV},Prerequisite Skill-ID-1,Prerequisite Skill-ID-1-Lv,PrereqSkill-ID-2,PrereqSkill-ID-2-Lv,PrereqSkill-ID-3,PrereqSkill-ID-3-Lv,PrereqSkill-ID-4,PrereqSkill-ID-4-Lv,PrereqSkill-ID-5,PrereqSkill-ID-5-Lv//CLASS_SKILLNAME#Skill Name#
+//--------------------------------------------------------------
+// _________                                    
+// \_   ___ \_______  ____   ____  __ __  ______
+// /    \  \/\_  __ \/    \ /    \|  |  \/  ___/
+// \     \____|  | \(  ( ) )   |  \  |  /\___ \ 
+//  \______  /|__|   \____/|___|  /____//____  >
+//         \/                   \/           \/  
+//--------------------------------------------------------------
+// Banco de Dados da Árvore de Habilidades das Classes
+//--------------------------------------------------------------
+// Estrutura do banco de dados:
+// JobNo,SkillID,MaxLv{,JobLv},PrereqSkillID1,PrereqSkillLv1,PrereqSkillID2,PrereqSkillLv2,PrereqSkillID3,PrereqSkillLv3,PrereqSkillID4,PrereqSkillLv4,PrereqSkillID5,PrereqSkillLv5	//CLASS_SKILLNAME#Nome da Habilidade#
+//
+// 01. JobNo			 ID da classe.
+// 02. SkillID           ID da habilidade.
+// 02. MaxLv             Nível máximo da habilidade.
+// 03. PrereqSkillID     ID da habilidade necessária para esta ser habilitada.
+// 04. PrereqSkillLv     Nível da PrereqSkillID para liberar a habilidade.
+//--------------------------------------------------------------
+
 //Novice
 0,1,9,0,0,0,0,0,0,0,0,0,0 //NV_BASIC#Basic Skill#
 0,142,1,0,0,0,0,0,0,0,0,0,0 //NV_FIRSTAID#First Aid#

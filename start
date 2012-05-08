@@ -1,0 +1,21 @@
+#!/bin/bash
+# modified by shazeya@syafi.com (NL130240)
+# traduzido por GreenBox
+# refeito por Roberto Lima - roberto@forbrazil.com.br
+
+if [ ! -x cronus-start ]; then
+    chmod +x cronus-start
+fi
+
+./cronus-start start
+sleep 20
+
+while [ true ]; do
+    if [ $(ps ax | grep -E "login|map|char" | wc -l) -eq 3 ]; then
+        printf "Servidor iniciado com sucesso! "
+        date
+    else
+        printf "Erro ao iniciar o servidor! "
+        date
+    fi
+done

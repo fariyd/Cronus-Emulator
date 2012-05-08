@@ -1,0 +1,89 @@
+//===== rAthena Script ======================================= 
+//= Brasilis Guide
+//===== By: ================================================== 
+//= L0ne_W0lf
+//===== Current Version: ===================================== 
+//= 1.2
+//===== Compatible With: ===================================== 
+//= rAthena  SVN
+//===== Description: ========================================= 
+//= [Aegis Conversion]
+//= Guide for the city of Brasilis
+//===== Additional Comments: ================================= 
+//= 1.0 First Version, Renewal guide.
+//= 1.1 Added a missing close.
+//= 1.2 Traduzido [J4ND3RS0N]
+//============================================================ 
+
+brasilis,219,97,3	script	Guia de Brasilis	478,{
+	mes "[Guia Brasilis]";
+	mes "Bem-vindo ao ^ 8B4513Brasilis ^ 000000, um país tão apaixonado como o sol.";
+	mes "Se você tiver alguma dúvida, por favor me perguntar.";
+	next;
+	mes "[Guia Brasilis]";
+	mes "Onde posso guiá-lo?";
+	while(1)
+	{
+		next;
+		switch (select ("[Hotel]: [cabo Selva]: [Museu de Arte]: [Mercado]: [Verass Monumento]: Remova marcas de Mini-Mapa: Cancelar"))
+		{
+			case 1:
+				mes "[Guia Brasilis]";
+				mes "O Hotel Brasilis está localizado logo acima, ^ FF3355 + ^ 000000.";
+				mes "Existe alguma coisa que eu posso fazer por você?";
+				viewpoint 1,274,151,2,0xFF3355;
+				next;
+				break;
+
+			case 2:
+				mes "[Guia Brasilis]";
+				mes "Você quer atravessar a selva áspera Você pode pegar um cabo da selva aqui ^ CE6300 + ^ 000000?";
+				mes "Existe alguma coisa que eu posso fazer por você?";
+				viewpoint 1,308,335,3,0xCE6300;
+				next;
+				break;
+
+			case 3:
+				mes "[Guia Brasilis]";
+				mes "O orgulho do Brasilis, o mundo Museu de Arte escala é em A5BAAD ^ + ^ 000000.";
+				mes "Existe alguma coisa que eu posso fazer por você?";
+				viewpoint 1,137,167,4,0x00FF00;
+				next;
+				break;
+
+			case 4:
+				mes "[Guia Brasilis]";
+				mes "Você pode comprar itens para a caça no Mercado aqui ^ 55FF33 + ^ 000000.";
+				mes "Existe alguma coisa que eu posso fazer por você?";
+				viewpoint 1,254,248,5,0x55FF33;
+				next;
+				break;
+			case 5:
+				mes "[Guia Brasilis]";
+				mes "O monumento emblemático do Brasilis, o Monumento Verass está em ^ 3355FF + ^ 000000.";
+				mes "Existe alguma coisa que eu posso fazer por você?";
+				viewpoint 1,195,235,6,0x3355FF;
+				next;
+				break;
+
+			case 6:
+				mes "[Guia Brasilis]";
+				mes "Eu vou remover todas as marcas do seu mini-mapa.";
+				mes "Existe alguma coisa que eu posso fazer por você?";
+				viewpoint 0,274,151,2,0x00FF00;
+				viewpoint 0,308,335,3,0x00FF00;
+				viewpoint 0,137,167,4,0x00FF00;
+				viewpoint 0,254,248,5,0x00FF00;
+				viewpoint 0,195,235,6,0x00FF00;
+				next;
+				break;
+
+			case 7:
+				mes "[Guia Brasilis]";
+				mes "Vagando em seu próprio país é sempre a melhor maneira de explorar todo o caso, tome cuidado.";
+				close;
+		}
+		close;
+		break;
+	}
+}

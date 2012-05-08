@@ -1,22 +1,16 @@
-// Skill Times Database
-//
-// Structure of Database:
-// SkillID,CastingTime,AfterCastActDelay,AfterCastWalkDelay,Duration1,Duration2,Cool Down,Fixed Casting Time
-//== Explained:
-// CastingTime : time to cast this skill, in miliseconds
-// AfterCastActDelay : "normal" delay, character cannot use skills, in miliseconds
-// AfterCastWalkDleay : amount of time before character can move again, in miliseconds
-// Duration1 / Duration2 : usually the durations used by the skill, at special cases it is used to hold special data
-// Cool Down : amount of time until character can re-use this skill, in miliseconds
-// Fixed Casting Time: the skills fixed casting time (when 0, uses 20% of cast time) 
-//== Extra
-// On all fields you can use ':' as a delimiter to level-specific values,
-// - Example using SM_PROVOKE
-// - Original:6,0,0,0,30000,0,1000
-// - ModifiedTo:6,0,0,0,30000,0,1000:2500:3000:etc
-// - Makes lvl 1 have 1000 (1s) cool down, lvl 2 2500 (2.5s), lvl 3 3000, and so on.
-//==========================================
-
+//--------------------------------------------------------------
+// _________                                    
+// \_   ___ \_______  ____   ____  __ __  ______
+// /    \  \/\_  __ \/    \ /    \|  |  \/  ___/
+// \     \____|  | \(  ( ) )   |  \  |  /\___ \ 
+//  \______  /|__|   \____/|___|  /____//____  >
+//         \/                   \/           \/  
+//--------------------------------------------------------------
+// Banco de Dados Temporal das Habilidades
+//--------------------------------------------------------------
+// Estrutura do banco de dados:
+// SkillID,TempoConjuracao,AfterCastActDelay,AfterCastWalkDelay,Duracao1,Duracao2
+//--------------------------------------------------------------
 
 //===== Swordman ===========================
 //-- SM_PROVOKE
@@ -38,7 +32,7 @@
 //-- MG_SOULSTRIKE
 13,500,1200:1000:1400:1200:1600:1400:1800:1600:2000:1800,0,0,0,0,0
 //-- MG_COLDBOLT
-14,350:700:1050:1400:1750:2100:2450:2800:3150:3500,1000:1200:1400:1600:1800:2000:2200:2400:2600:2800,0,0,0,0,0
+14,800:1200:1600:2000:2400:2800:3200:3600:4000:4400,1000:1200:1400:1600:1800:2000:2200:2400:2600:2800,0,0,0,0,0
 //-- MG_FROSTDRIVER
 15,800,1500,0,0,3000:6000:9000:12000:15000:18000:21000:24000:27000:30000,0,0
 //-- MG_STONECURSE
@@ -48,9 +42,9 @@
 //-- MG_FIREWALL
 18,2000:1850:1700:1550:1400:1250:1100:950:800:650,0,0,5000:6000:7000:8000:9000:10000:11000:12000:13000:14000,0,0,0
 //-- MG_FIREBOLT
-19,350:700:1050:1400:1750:2100:2450:2800:3150:3500,1000:1200:1400:1600:1800:2000:2200:2400:2600:2800,0,0,0,0,0
+19,800:1200:1600:2000:2400:2800:3200:3600:4000:4400,1000:1200:1400:1600:1800:2000:2200:2400:2600:2800,0,0,0,0,0
 //-- MG_LIGHTNINGBOLT
-20,350:700:1050:1400:1750:2100:2450:2800:3150:3500,1000:1200:1400:1600:1800:2000:2200:2400:2600:2800,0,0,0,0,0
+20,800:1200:1600:2000:2400:2800:3200:3600:4000:4400,1000:1200:1400:1600:1800:2000:2200:2400:2600:2800,0,0,0,0,0
 //-- MG_THUNDERSTORM
 21,1000:2000:3000:4000:5000:6000:7000:8000:9000:10000,2000,0,500,0,0,0
 //==========================================

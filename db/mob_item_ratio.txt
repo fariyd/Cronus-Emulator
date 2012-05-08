@@ -1,7 +1,16 @@
-// Overrides for global item_rate* values from conf/battle/drops.conf
-
-// Database format:
-// ItemID,Ratio{,MonsterID}
+//--------------------------------------------------------------
+// _________                                    
+// \_   ___ \_______  ____   ____  __ __  ______
+// /    \  \/\_  __ \/    \ /    \|  |  \/  ___/
+// \     \____|  | \(  ( ) )   |  \  |  /\___ \ 
+//  \______  /|__|   \____/|___|  /____//____  >
+//         \/                   \/           \/  
+//--------------------------------------------------------------
+// Banco de Dados de substituição os valores de Drop Global do conf/battle/drops.conf
+//--------------------------------------------------------------
+// Estrutura do banco de dados:
+// ItemID,Taxa{,ModID}
+//--------------------------------------------------------------
 
 // Result:
 // ItemID base drop rates defined in mob_db will not get multiplied

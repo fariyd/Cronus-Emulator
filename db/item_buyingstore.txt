@@ -1,11 +1,16 @@
-// Buying Store Item List
-// List of items, that can be sold to buying stores.
-// Format: <item id>
-// Example:
-//  512  // Apple
-// Note:
-//  Items are in same order as data\buyingstoreitemlist.txt, which
-//  must be edited as well for the client to accept added items.
+//--------------------------------------------------------------
+// _________                                    
+// \_   ___ \_______  ____   ____  __ __  ______
+// /    \  \/\_  __ \/    \ /    \|  |  \/  ___/
+// \     \____|  | \(  ( ) )   |  \  |  /\___ \ 
+//  \______  /|__|   \____/|___|  /____//____  >
+//         \/                   \/           \/  
+//--------------------------------------------------------------
+// Lista de Itens da Janela de Compra
+//--------------------------------------------------------------
+// Formato: <item id>
+// NOTA: Os itens também devem estar em data\buyingstoreitemlist.txt
+//--------------------------------------------------------------
 
 // items from 2011-11-02 update
 714  // Emperium

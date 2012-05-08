@@ -1,8 +1,17 @@
-// Items Database
-//
-// Structure of Database:
-// ID,AegisName,Name,Type,Buy,Sell,Weight,ATK,DEF,Range,Slots,Job,Upper,Gender,Loc,wLV,eLV,Refineable,View,{ Script },{ OnEquip_Script },{ OnUnequip_Script }
-//
+//--------------------------------------------------------------
+// _________                                    
+// \_   ___ \_______  ____   ____  __ __  ______
+// /    \  \/\_  __ \/    \ /    \|  |  \/  ___/
+// \     \____|  | \(  ( ) )   |  \  |  /\___ \ 
+//  \______  /|__|   \____/|___|  /____//____  >
+//         \/                   \/           \/  
+//--------------------------------------------------------------
+// Banco de dados de Itens
+//--------------------------------------------------------------
+// Estrutura do banco de dados:
+// ID,AegisName,Nome,Tipo,Compra,Venda,Peso,ATQ,DEF,Alcance,Slots,Job,Upper,Sexo,Loc,wLV,eLV,Refinavel,View,{ Script },{ OnEquip_Script },{ OnUnequip_Script }
+//--------------------------------------------------------------
+
 // Healing Items
 //=============================================================
 501,Red_Potion,Red Potion,0,50,,70,,,,,0xFFFFFFFF,7,2,,,,,,{ itemheal rand(45,65),0; },{},{}

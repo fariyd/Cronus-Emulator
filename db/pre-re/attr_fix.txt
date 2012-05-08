@@ -1,7 +1,16 @@
-// Elemental attribute damage adjustment tables
-//
-// Row: target's defense element
-// Column: attacker's weapon element
+//--------------------------------------------------------------
+// _________                                    
+// \_   ___ \_______  ____   ____  __ __  ______
+// /    \  \/\_  __ \/    \ /    \|  |  \/  ___/
+// \     \____|  | \(  ( ) )   |  \  |  /\___ \ 
+//  \______  /|__|   \____/|___|  /____//____  >
+//         \/                   \/           \/  
+//--------------------------------------------------------------
+// Tabela de Ajuste de Dano Elemental
+//--------------------------------------------------------------
+// Linha:       elemento de defesa do alvo
+// Coluna:      elemento da arma do atacante
+//--------------------------------------------------------------
 
 1,10	// lv1 Attribute table
 //Neut Watr Erth Fire Wind Pois Holy Shdw Gho  Und

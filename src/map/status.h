@@ -591,7 +591,7 @@ typedef enum sc_type {
 	SC_SOULCOLD, //509
 	SC_HAWKEYES,
 	SC_ODINS_POWER,
-	SC_RAID,
+	SC_RAID,//513
 	
 	SC_MAX, //Automatically updated max, used in for's to check we are within bounds.
 } sc_type;

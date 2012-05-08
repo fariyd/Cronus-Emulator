@@ -1,6 +1,16 @@
-// Improvise DB.
-// Database for skills that can be summoned trough Randomize Spell/Improvised Song (Minstrel/Wanderer Skill).
-// Format: SkillID,Rate
+//--------------------------------------------------------------
+// _________                                    
+// \_   ___ \_______  ____   ____  __ __  ______
+// /    \  \/\_  __ \/    \ /    \|  |  \/  ___/
+// \     \____|  | \(  ( ) )   |  \  |  /\___ \ 
+//  \______  /|__|   \____/|___|  /____//____  >
+//         \/                   \/           \/  
+//--------------------------------------------------------------
+// Banco de dados para habilidades que podem ser convocadas através de Magia Randonizada/Música Improvisada (Trovador/Musa - Skills).
+//--------------------------------------------------------------
+// Estrutura do banco de dados:
+// SkillID,Rate
+//--------------------------------------------------------------
 
 // Mage Skills
 10,5000	// Sight

@@ -4638,7 +4638,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, in
 	* starts at 2 boost + 0.3 for each level
 	**/
 			if( skillid == AB_HIGHNESSHEAL)
-				heal = heal * (2 + (0.3 * (skilllv - 1)));
+				heal = heal * (2 + ((skilllv - 1) * 3) / 10);
 			if( status_isimmune(bl) ||
 					(dstmd && (dstmd->class_ == MOBID_EMPERIUM || mob_is_battleground(dstmd))) ||
 					(skillid == AL_HEAL && dstsd && dstsd->sc.option&OPTION_MADOGEAR) )//Mado is immune to AL_HEAL

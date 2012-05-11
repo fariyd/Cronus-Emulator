@@ -24,6 +24,7 @@ ipch
 Makefile
 Makefile.cache
 char-server_sql
+config.log
 config.status
 core
 login-server_sql

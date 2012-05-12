@@ -5683,26 +5683,23 @@ ACMD_FUNC(changegm)
 	struct map_session_data *pl_sd;
 	nullpo_retr(-1, sd);
 
-	if (sd->status.guild_id == 0 || (g = guild_search(sd->status.guild_id)) == NULL || strcmp(g->master,sd->status.name))
-	{
-		clif_displaymessage(fd, "You need to be a Guild Master to use this command.");
+	if (sd->status.guild_id == 0 || (g = guild_search(sd->status.guild_id)) == NULL || strcmp(g->master,sd->status.name)) {
+		clif_displaymessage(fd, "Você precisa ser o Líder de um Clã para usar este comando.");
 		return -1;
 	}
 
-	if( map[sd->bl.m].flag.guildlock )
-	{
-		clif_displaymessage(fd, "You cannot change guild leaders on this map.");
+	if( map[sd->bl.m].flag.guildlock || map[sd->bl.m].flag.gvg_castle ) {
+		clif_displaymessage(fd, "Você não pode mudar o Líder do Clã neste mapa.");
 		return -1;
 	}
 
-	if( !message[0] )
-	{
-		clif_displaymessage(fd, "Command usage: @changegm <guildmember name>");
+	if( !message[0] ) {
+		clif_displaymessage(fd, "Uso do comando: @changegm <Nome do novo Líder do Clã>");
 		return -1;
 	}
 	
 	if((pl_sd=map_nick2sd((char *) message)) == NULL || pl_sd->status.guild_id != sd->status.guild_id) {
-		clif_displaymessage(fd, "Target character must be online and be a guildmate.");
+		clif_displaymessage(fd, "O jogador deve esta online e ser um membro do Clã.");
 		return -1;
 	}
 

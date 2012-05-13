@@ -5492,16 +5492,12 @@ void status_set_viewdata(struct block_list *bl, int class_)
 			if (pcdb_checkid(class_)) {
 				if (sd->sc.option&OPTION_WEDDING)
 					class_ = JOB_WEDDING;
-				else
-				if (sd->sc.option&OPTION_SUMMER)
+				else if (sd->sc.option&OPTION_SUMMER)
 					class_ = JOB_SUMMER;
-				else
-				if (sd->sc.option&OPTION_XMAS)
+				else if (sd->sc.option&OPTION_XMAS)
 					class_ = JOB_XMAS;
-				else
-				if (sd->sc.option&OPTION_RIDING)
-				switch (class_)
-				{	//Adapt class to a Mounted one.
+				else if (sd->sc.option&OPTION_RIDING) {
+				switch (class_) {	//Adapt class to a Mounted one.
 				case JOB_KNIGHT:
 					class_ = JOB_KNIGHT2;
 					break;
@@ -5520,6 +5516,7 @@ void status_set_viewdata(struct block_list *bl, int class_)
 				case JOB_BABY_CRUSADER:
 					class_ = JOB_BABY_CRUSADER2;
 					break;
+					}
 				}
 				sd->vd.class_ = class_;
 				clif_get_weapon_view(sd, &sd->vd.weapon, &sd->vd.shield);
@@ -8293,6 +8290,15 @@ int status_change_clear(struct block_list* bl, int type)
 		case SC_FOOD_DEX_CASH:
 		case SC_FOOD_INT_CASH:
 		case SC_FOOD_LUK_CASH:
+		case SC_DEF_RATE:
+		case SC_MDEF_RATE:
+		case SC_INCHEALRATE:
+		case SC_INCFLEE2:
+		case SC_INCHIT:
+		case SC_ATKPOTION:
+		case SC_MATKPOTION:
+		case SC_S_LIFEPOTION:
+		case SC_L_LIFEPOTION:
 			continue;
 
 		}

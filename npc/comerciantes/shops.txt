@@ -91,7 +91,7 @@ cmd_fild07,257,126,5	shop	Tool Dealer#cmd2	83,1770:-1,501:-1,502:-1,503:-1,504:-
 cmd_fild07,250,98,2	shop	Weapon Dealer#cmd2	49,1401:-1,1404:-1,1407:-1,1451:-1,1454:-1,1457:-1,1460:-1,1463:-1,1410:-1
 cmd_fild07,277,85,4	shop	Armor Dealer#cmd2	101,2226:-1,2228:-1,2103:-1,2105:-1,2405:-1,2503:-1,2505:-1,2305:-1,2321:-1,2307:-1,2309:-1,2335:-1,2312:-1,2314:-1,2316:-1
 comodo,106,213,5	shop	Tropic Fruit Dealer	724,6258:-1
-comodo,196,162,3        shop    Harive#candy    479,11513:-1,6144:-1
+comodo,196,162,3	shop	Harive#cmd	479,11513:-1,6144:-1
 //=======================================================
 // Einbroch
 //=======================================================
@@ -325,47 +325,3 @@ gonryun,147,101,5	shop	Chef Assistant#gon	83,7452:-1,580:-1
 ayothaya,203,178,3	shop	Chef Assistant#ayo	83,7455:-1,577:-1
 xmas,152,137,5	shop	Chef Assistant#xmas	83,7457:-1,577:-1
 niflheim,209,180,5	shop	Chef Assistant#nif	83,581:-1
-
-//===== Additional Comments(old): ================================= 
-//= swapped shop titles in GONRYUN, thanks to Kashy
-//= 1.3a Fixed Louyang map name. Added additional shops in Yuno. [kobra_k88]
-//= 1.4 Added Niflheim Shops
-//= 1.5 New Payon Locations [Darkchild]
-//= Moved shops in Umbala.txt here. Commented out the duplicate ones.[kobra_k88]
-//= 1.6 Removed GRAPE ID 514 from shops (caused exploits)
-//= 1.7 Removed juices from custom amatsu shops (it's a quest item + levelup exploit)
-//= 1.8 Corrected Niflheim Shops and Morroc Jewel Merchant [celest]
-//= 1.9 Updated Louyang shops thanks to MasterOfMuppets
-//= 1.10 Lutie Tools coords [Yor]
-//= 1.11 Added Belts to Prontera/Aldebaran shops, thanks to reddozen [Lupus]
-//= 1.12 official Ayothaya Shops, thanks to MasterOfMuppets [Lupus]
-//= 1.13 Added 5092 Coif into Prontera Church shop [Lupus]
-//= 1.14 Added Lighthalzen,Einbroch,Einbech shops. Updated Prontera,Morroc,Payon shops [Lupus]
-//= 1.15 Added Venom Knives into every Weapon Shop (that sells Knife[3]) [Lupus]
-//= 1.15a Fixed a small typo in alberta's weapon shop, thanks to reddozen for the fix [MasterOfMuppets]
-//= 1.16 Added a temp shop in Yuno to sell Blank scrolls, thanks to reddozen [MasterOfMuppets]
-//= 1.17 Added wand of hypnotist to the Lighthalzen weapon shop [MasterOfMuppets]
-//= 1.18 Fixed some shops based on kRO shots [Poki#3]
-//= 1.19 Added Hugel and fixed Payon shops based on kRO shots [Poki#3]
-//= 1.19a Added Food Seller selling Mastela Fruit in Hugel (Update item_db for the correct price!) [Poki#3]
-//= 1.20 Added 3 weapons shops, thx2 Muad_Dib [Lupus]
-//= 1.21 Added another weapon dealer to Einbroch, thanks to Muad_Dib [MasterOfMuppets]
-//=    - Fixed up the missing sprites for you Lupus :)
-//=   -  Guys, I suggest we crop these comments and put them at the bottom soon
-//= 1.22 Thx8) Removed Berserk Potions from all shops but Comodo [Lupus]
-//= 1.3 Added Gunslinger shops. Credits goes to RockmanEXE for the info [erKURITA]
-//=	Added Bucket Hat to Flu Mask dealer and modified it's name to a more logical one :P [erKURITA]
-//= 1.4 Added an ingredient seller to Morroc, thanks to Muad_Dib [MasterOfMuppets]
-//= a Removed doubled Morocc Ing.Seller, arranged the rest Ing.Sellers according to the city names [Lupus]
-//= 1.4b Commented out temp Gunslinger shops. [Lupus]
-//= 1.5 Removed Temp gunslinger shops and moved up the official ones. [erKURITA]
-//=	  Added Official Ninja shops in their correct location and commented a few
-//=	  shops. Thanks to RockmanEXE and Muad_Dib [erKURITA]
-//= 1.6 Implemented a missing Tool Shop in Lighthalzen [MasterOfMuppets]
-//= 1.7 Added some missing iRO - Lighthalzen NPCs [Musashiden]
-//= 1.8 Added Rachel Official shops. Special Thanks to RockmanEXE. [erKURITA]
-//= 1.9 Uncommented Homunculus shop, since Homunculus is working on trunk now. [Evera]
-//= 1.9a Pet Merchant -> Lighthalzen [erKURITA]
-//= 1.9b Added items to Chivas Regal
-//= 1.9c Slight update for Rachel shop: Tool Dealer -> Fruit Gardener [L0ne_W0lf]
-//============================================================

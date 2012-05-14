@@ -27,9 +27,7 @@ Equipe
 
 ### Desenvolvedores
 - Axl			- José Goís
-- Elf0			- Ticin
 - J4ND3RS0N		- Janderson
-- Joao Pedro		- João Pedro
 - LyDe			- Luiz Fernando
 - Sicks 		- Bruno
 - Takyia Genji		- Raphael

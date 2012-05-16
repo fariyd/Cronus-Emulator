@@ -566,7 +566,7 @@ int skillnotok (int skillid, struct map_session_data *sd)
 			/**
 			 * These skills cannot be used while in mado gear (credits to Xantara)
 			 **/
-			if(sd->sc.option&OPTION_MADOGEAR) {
+			if( pc_ismadogear(sd) ) {
 				clif_skill_fail(sd,skillid,USESKILL_FAIL_LEVEL,0);
 				return 1;
 			}
@@ -3053,6 +3053,7 @@ static int skill_timerskill(int tid, unsigned int tick, int id, intptr_t data)
 					map_foreachinrange(skill_area_sub, src, skill_get_splash(skl->skill_id, skl->skill_lv), splash_target(src), src, skl->skill_id, skl->skill_lv, tick, skl->flag, skill_castend_damage_id);
 					break;
 				case WZ_WATERBALL:
+					skill_toggle_magicpower(src, skl->skill_id); // only the first hit will be amplify
 					if (!status_isdead(target))
 						skill_attack(BF_MAGIC,src,src,target,skl->skill_id,skl->skill_lv,tick,skl->flag);
 					if (skl->type>1 && !status_isdead(target) && !status_isdead(src)) {
@@ -3074,6 +3075,7 @@ static int skill_timerskill(int tid, unsigned int tick, int id, intptr_t data)
 					{
 						struct block_list *nbl = NULL; // Next Target of Chain
 						skill_attack(BF_MAGIC,src,src,target,skl->skill_id,skl->skill_lv,tick,skl->flag); // Hit a Lightning on the current Target
+						skill_toggle_magicpower(src, skl->skill_id); // only the first hit will be amplify
 						if( skl->type > 1 )
 						{ // Remaining Chains Hit
 							nbl = battle_getenemyarea(src,target->x,target->y,2,BL_CHAR|BL_SKILL,target->id); // Search for a new Target around current one...
@@ -3094,6 +3096,7 @@ static int skill_timerskill(int tid, unsigned int tick, int id, intptr_t data)
 				case WL_TETRAVORTEX_WIND:
 				case WL_TETRAVORTEX_GROUND:
 					skill_attack(BF_MAGIC,src,src,target,skl->skill_id,skl->skill_lv,tick,skl->flag);
+					skill_toggle_magicpower(src, skl->skill_id); // only the first hit will be amplify
 					if( skl->type >= 3 )
 					{ // Final Hit
 						if( !status_isdead(target) )
@@ -4641,7 +4644,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, in
 				heal = heal * (2 + ((skilllv - 1) * 3) / 10);
 			if( status_isimmune(bl) ||
 					(dstmd && (dstmd->class_ == MOBID_EMPERIUM || mob_is_battleground(dstmd))) ||
-					(skillid == AL_HEAL && dstsd && dstsd->sc.option&OPTION_MADOGEAR) )//Mado is immune to AL_HEAL
+					(skillid == AL_HEAL && dstsd && pc_ismadogear(dstsd)) )//Mado is immune to AL_HEAL
 				heal=0;
 
 			if( sd && dstsd && sd->status.partner_id == dstsd->status.char_id && (sd->class_&MAPID_UPPERMASK) == MAPID_SUPER_NOVICE && sd->status.sex == 0 )
@@ -7793,8 +7796,8 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, in
 
 	case NC_SELFDESTRUCTION:
 		if( sd ) {
-			if( sd->sc.option&OPTION_MADOGEAR )
-				pc_setoption(sd, sd->sc.option&~OPTION_MADOGEAR);
+			if( pc_ismadogear(sd) )
+				 pc_setmadogear(sd, 0);
 			clif_skill_nodamage(src, bl, skillid, skilllv, 1);
 			skill_castend_damage_id(src, src, skillid, skilllv, tick, flag);
 		}
@@ -7821,7 +7824,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, in
 		if( sd )
 		{
 			int heal;
-			if( dstsd && (dstsd->sc.option&OPTION_MADOGEAR) )
+			if( dstsd && pc_ismadogear(dstsd) )
 			{
 				heal = dstsd->status.max_hp * (3+3*skilllv) / 100;
 				status_heal(bl,heal,0,2);
@@ -11776,7 +11779,7 @@ int skill_check_condition_castbegin(struct map_session_data* sd, short skill, sh
 				return 0;
 		}
 	}
-	if( sd->sc.option&OPTION_MADOGEAR ) {
+	if( pc_ismadogear(sd) ) {
 		switch( skill ) { //Blacksmiths and Mastersmiths skills are unusable when Mado is equipped. [Jobbie]
 			case BS_REPAIRWEAPON:  case WS_MELTDOWN:
 			case BS_HAMMERFALL:    case WS_CARTBOOST:
@@ -12284,8 +12287,8 @@ int skill_check_condition_castbegin(struct map_session_data* sd, short skill, sh
 			}
 			break;
 		case RETURN_TO_ELDICASTES:
-			if( sd->sc.option&OPTION_MADOGEAR ) { //Cannot be used if Mado is equipped.
-				clif_skill_fail(sd,skill,0,0);
+			if( pc_ismadogear(sd) ) { //Cannot be used if Mado is equipped.
+				clif_skill_fail(sd,skill,USESKILL_FAIL_LEVEL,0);
 				return 0;
 			}
 			break;			
@@ -12386,7 +12389,7 @@ int skill_check_condition_castbegin(struct map_session_data* sd, short skill, sh
 	 * Wug
 	 **/
 	case ST_WUG:
-		if( !(sd->sc.option&OPTION_WUG) ) {
+		if( !pc_iswug(sd) ) {
 			clif_skill_fail(sd,skill,USESKILL_FAIL_LEVEL,0);
 			return 0;
 		}
@@ -12395,7 +12398,7 @@ int skill_check_condition_castbegin(struct map_session_data* sd, short skill, sh
 	 * Riding Wug
 	 **/
 	case ST_RIDINGWUG:
-		if( !(sd->sc.option&OPTION_WUGRIDER) ){
+		if( !pc_isridingwug(sd) ){
 			clif_skill_fail(sd,skill,USESKILL_FAIL_LEVEL,0);
 			return 0;
 		}
@@ -12404,7 +12407,7 @@ int skill_check_condition_castbegin(struct map_session_data* sd, short skill, sh
 	 * Mechanic
 	 **/
 	case ST_MADO:
-		if( !(sd->sc.option&OPTION_MADOGEAR) ) {
+		if( !pc_ismadogear(sd) ) {
 			clif_skill_fail(sd,skill,USESKILL_FAIL_LEVEL,0);
 			return 0;
 		}

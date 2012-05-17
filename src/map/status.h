@@ -590,8 +590,14 @@ typedef enum sc_type {
 	SC_GLORYWOUNDS,
 	SC_SOULCOLD, //509
 	SC_HAWKEYES,
+	/* ... */
 	SC_ODINS_POWER,
-	SC_RAID,//513
+	SC_RAID,
+	/* Sorcerer .extra */ 
+	SC_FIRE_INSIGNIA, 
+	SC_WATER_INSIGNIA, 
+	SC_WIND_INSIGNIA, //515 
+	SC_EARTH_INSIGNIA, //516
 	
 	SC_MAX, //Automatically updated max, used in for's to check we are within bounds.
 } sc_type;

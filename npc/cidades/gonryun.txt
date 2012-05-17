@@ -1,21 +1,26 @@
-//===== rAthena Script ======================================= 
-//= Kunlun Town
-//===== By: ================================================== 
-//= x[tsk], KarLaeda
-//===== Current Version: ===================================== 
-//= 1.4
-//===== Compatible With: ===================================== 
-//= rAthena SVN
-//===== Description: ========================================= 
-//= [Aegis Conversion]
-//= Kunlun Town Script
-//===== Additional Comments: ================================= 
-//= 1.5 Rescripted to Aegis 10.3 standards. [L0ne_W0lf]
-//=	Moved Lost Knife mini-quest to quest file.
-//= 1.6 Tradução PT-BR(Aegis)				[L.Otoni]
-//============================================================
+﻿//====================================================================
+//          _________                                                  
+//          \_   ___ \_______  ____   ____  __ __  ______             
+//          /    \  \/\_  __ \/    \ /    \|  |  \/  ___/              
+//          \     \____|  | \(  ( ) )   |  \  |  /\___ \               
+//           \______  /|__|   \____/|___|  /____//____  >              
+//                  \/                   \/           \/               
+//                                                               
+//====================== Cronus Script ===============================
+//= NPCs referentes a cidade de Kunlun
+//===== Por: =========================================================
+//= x[tsk]; KarLaeda; L.Otoni
+//===== Versão Atual: ================================================
+//= 1.6
+//===== Compatível com: ==============================================
+//= Cronus GIT
+//===== Descrição: ===================================================
+//= NPCs referentes a cidade de Kunlun
+//===== Comentários Adicionais: ======================================
+//= 1.6 Adicionado diálogos Oficiais do bRO. [L.Otoni]
+//====================================================================
 
-// Transporte Kunlun
+// Kulun NPC de teletransporte
 //============================================================ 
 alberta,245,69,3	script	Barqueiro de Kunlun#gon	776,{
 	mes "[Wabakho]";
@@ -149,7 +154,7 @@ gonryun,153,64,7	script	Anunciante de Kunlun#4	776,{
 	close;
 }
 
-// Generic Kunlun NPCs
+// Kunlun NPCs
 //============================================================ 
 gonryun,200,82,3	script	SungSon Gam#gon	774,{
 	mes "[SungSon Gam]";
@@ -358,14 +363,3 @@ gonryun,169,71,3	script	Guia#gon	770,{
 	mes "bonitas pela cidade.";
 	close;
 }
-
-//============================================================ 
-// Old changelog
-//============================================================ 
-// May be missing npc's and dialogue.
-//= 1.1 Fixed Typo�s [Nexon]
-//= 1.2 Removed Duplicates [Silent]
-//= 1.3 Max NPC Name is 23 [Toms]
-//= 1.3a Removed temp NPC plugs due Broken Sword quest [Lupus]
-//= 1.4 Added missing NPC [KarLaeda]
-//============================================================

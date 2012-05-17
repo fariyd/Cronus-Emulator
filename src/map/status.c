@@ -1707,13 +1707,11 @@ int status_base_amotion_pc(struct map_session_data* sd, struct status_data* stat
 	amotion+= sd->aspd_add;
 
 #ifdef RENEWAL
-	if( sd->status.shield )
-	{// bearing a shield decreases your ASPD by a fixed value depending on your class
+	if( sd->status.shield ) {// bearing a shield decreases your ASPD by a fixed value depending on your class
 		amotion += re_job_db[pc_class2idx(sd->status.class_)][SHIELD_ASPD];
 	}
 
-	if( sd->sc.count )
-	{// renewal absolute ASPD modifiers
+	if( sd->sc.count ) {// renewal absolute ASPD modifiers
 		int i;
 		if ( sd->sc.data[i=SC_ASPDPOTION3] ||
 			 sd->sc.data[i=SC_ASPDPOTION2] ||
@@ -1724,6 +1722,8 @@ int status_base_amotion_pc(struct map_session_data* sd, struct status_data* stat
 			amotion -= 150;
 		else if( sd->sc.data[SC_SPEARQUICKEN] || sd->sc.data[SC_TWOHANDQUICKEN] )
 			amotion -= 70;
+		if( sd->sc.data[SC_ADRENALINE] )/* +7 for self, +6 for others */
+			amotion -= sd->sc.data[SC_ADRENALINE]->val2 ? 70 : 60;
 	}
 #endif
 
@@ -4912,8 +4912,7 @@ static short status_calc_aspd_rate(struct block_list *bl, struct status_change *
 	if(!sc || !sc->count)
 		return cap_value(aspd_rate,0,SHRT_MAX);
 
-	if(!sc->data[SC_QUAGMIRE])
-	{
+	if( !sc->data[SC_QUAGMIRE] ){
 		int max = 0;
 		if(sc->data[SC_STAR_COMFORT])
 			max = sc->data[SC_STAR_COMFORT]->val2;
@@ -4933,12 +4932,11 @@ static short status_calc_aspd_rate(struct block_list *bl, struct status_change *
 		if(sc->data[SC_ADRENALINE2] &&
 			max < sc->data[SC_ADRENALINE2]->val3)
 			max = sc->data[SC_ADRENALINE2]->val3;
-		
+#ifndef RENEWAL		
 		if(sc->data[SC_ADRENALINE] &&
 			max < sc->data[SC_ADRENALINE]->val3)
 			max = sc->data[SC_ADRENALINE]->val3;
 		
-#ifndef RENEWAL
 		if(sc->data[SC_SPEARQUICKEN] &&
 			max < sc->data[SC_SPEARQUICKEN]->val2)
 			max = sc->data[SC_SPEARQUICKEN]->val2;
@@ -6354,6 +6352,11 @@ int status_change_start(struct block_list* bl,enum sc_type type,int rate,int val
 			status_change_end(bl, SC_AURABLADE, INVALID_TIMER);
 			status_change_end(bl, SC_MERC_QUICKEN, INVALID_TIMER);
 		}
+#ifdef RENEWAL
+		else {
+			status_change_end(bl, SC_TWOHANDQUICKEN, INVALID_TIMER);
+		}
+#endif
 		break;
 	case SC_ASSUMPTIO:
 		status_change_end(bl, SC_KYRIE, INVALID_TIMER);

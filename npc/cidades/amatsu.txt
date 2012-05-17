@@ -9,7 +9,7 @@
 //====================== Cronus Script ===============================
 //= NPCs referentes a cidade de Amatsu
 //===== Por: =========================================================
-//= L0ne_W0lf
+//= L0ne_W0lf; Axl
 //===== Versão Atual: ================================================
 //= 1.4
 //===== Compatível com: ==============================================
@@ -17,7 +17,7 @@
 //===== Descrição: ===================================================
 //= NPCs referentes a cidade de Amatsu
 //===== Comentários Adicionais: ======================================
-//= 1.4 Script traduzido do eA conforme os diálogos do bRO. [Axl]
+//= 1.4 Adicionado diálogos Oficiais do bRO. [Axl]
 //====================================================================
 
 // Transporte para Amatsu

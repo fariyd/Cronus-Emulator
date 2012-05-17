@@ -9,7 +9,7 @@
 //====================== Cronus Script ===============================
 //= NPCs referentes a cidade de Alberta
 //===== Por: =========================================================
-//= DZeroX
+//= DZeroX; Axl
 //===== Versão Atual: ================================================
 //= 1.6
 //===== Compatível com: ==============================================
@@ -17,7 +17,7 @@
 //===== Descrição: ===================================================
 //= NPCs referentes a cidade de Alberta
 //===== Comentários Adicionais: ======================================
-//= 1.6 Script traduzido do eA conforme os diálogos do bRO. [Axl]
+//= 1.6 Adicionado diálogos Oficiais do bRO. [Axl]
 //====================================================================
 
 alberta,97,51,0	script	Mercador#alb1	84,{

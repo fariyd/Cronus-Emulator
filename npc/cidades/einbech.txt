@@ -29,7 +29,7 @@ einbech,172,113,4	script	Nemuk#ein	855,{
 	next;
 	if (select("É legal.:Parece violento.") == 1) {
 		mes "[Nemuk]";
-		mes "Hã?"
+		mes "Hã?";
 		mes "Eu não tenho certeza do que você viu, mas estou surpreso de ouvi-lo falar assim.";
 		next;
 		mes "[Nemuk]";
@@ -97,7 +97,7 @@ einbech,128,238,5	script	Mogan#ein	848,{
 	mes "Recentemente, tem havido muitos";
 	mes "desmoronamentos de túneis, aonde muitas pessoas se machucaram.";
 	next;
-	mes "[Mogan]"
+	mes "[Mogan]";
 	mes "Foi discutido no Conselho da Cidade, mas em minha opinião, acho que os mineiros escavaram muito fundo e perturbaram... ^FF0000aquelas coisas^000000.";
 	next;
 	mes "[Mogan]";
@@ -369,7 +369,7 @@ ein_in01,277,95,7	script	Ryan Danger#air#einbech	855,{
 }
 	
 ein_in01,281,85,3	script	Bêbado#einbech_bar	849,{
-	mes "[Bêbado]"
+	mes "[Bêbado]";
 	mes "...^333333*Hic*^000000...^333333*Hic*^000000...";
 	mes "^333333*Bocejo*^000000";
 	mes ".................";
@@ -378,8 +378,8 @@ ein_in01,281,85,3	script	Bêbado#einbech_bar	849,{
 }
 
 einbech,46,107,6	script	Shena#ein::EinMonsters	846,{
-	mes "[Shena]"
-	mes "Bem...!"
+	mes "[Shena]";
+	mes "Bem...!";
 	mes "Isso parece estranho para mim.";
 	mes "Como pode vocês, jovens, não saberem a respeito disso?";
 	next;
@@ -566,8 +566,7 @@ einbech,148,242,5	script	Jung#ein	855,{
 	mes "[Jung]";
 	mes "Devo ser provavelmente um dos melhores guias da região. Se você quiser entrar no Calabouço da Mina, posso lhe dar as informações que quiser.";
 	next;
-	if (Sex) {
-	switch(select("Claro, por que não?:Não, obrigado.")) {
+	switch(select("Claro, por que não?:Não, obrigad"+ sex ? "o":"a" +".")) {
 	case 1:
 		mes "[Jung]";
 		mes "Certo!";
@@ -587,7 +586,7 @@ einbech,148,242,5	script	Jung#ein	855,{
 			next;
 			mes "[Jung]";
 			mes "Eles deixam cair ^FF0000Maçãs^000000, ^FF0000Poeira Poluente^000000,";
-			mes "^FF0000Bacillus^000000, ^FF0000Pó Venenoso^000000, ^FF0000Gás Tóxico^000000,"
+			mes "^FF0000Bacillus^000000, ^FF0000Pó Venenoso^000000, ^FF0000Gás Tóxico^000000,";
 			mes "^FF0000Pó Combinado e ^FF0000Analgésico^000000.";
 			next;
 			mes "[Jung]";
@@ -597,7 +596,7 @@ einbech,148,242,5	script	Jung#ein	855,{
 			mes "É melhor você tomar cuidado! Eles podem se aproximar de você sorrateiramente, através do ar, antes de atacá-lo sem aviso prévio.";
 			next;
 			mes "[Jung]";
-			mes "Isso é tudo que eu sei."
+			mes "Isso é tudo que eu sei.";
 			mes "Se tiver qualquer pergunta sobre os monstros do Calabouço da Mina, sinta-se à vontade para perguntar. Vá com cuidado, aventureiro.";
 			close;
 		case 2:
@@ -623,9 +622,9 @@ einbech,148,242,5	script	Jung#ein	855,{
 			mes "se procurar bem ";
 			mes "no chão ao redor";
 			mes "de um Porcellio.";
-			mes ""
+			mes "";
 			next;
-			mes "[Jung]"
+			mes "[Jung]";
 			mes "O Porcellio é um monstro de uma classe menor de insetos";
 			mes "que possui a propriedade Terra.";
 			mes "E você pode conseguir ^FF0000Jubileu^000000, ^FF0000Antenas de Inseto^000000";
@@ -700,143 +699,6 @@ einbech,148,242,5	script	Jung#ein	855,{
 		mes "aventuras, certo?";
 		close;
 	}
-} else {
-
-		switch (select ("Claro, por que não?","Não, obrigada.")) {
-		case 1:
-			mes "[Jung]";
-			mes "Certo!";
-			mes "Vou lhe contar tudo sobre os monstros que habitam o Calabouço da Mina. Qual você gostaria de saber?";
-			next;
-			switch (select ("Noxious, Venomous","Porcellio","Obsidian")) {
-			case 1:
-				mes "[Jung]";
-				mes "Noxious e Venomous...";
-				mes "Ninguém sabe de onde eles vieram. Eles simplesmente apareceram do nada, quando Einbroch começou a se industrializar.";
-				next;
-				mes "[Jung]";
-				mes "Eles são criaturas misteriosas que não parecem ter sido originadas aqui. De alguma forma, eles parecem nem ser naturais.";
-				next;
-				mes "[Jung]";
-				mes "Eu ouvi dizer que eles têm uma aura de tristeza. Como vivem em tamanha desgraça e sofrimento, eles desejam que seus inimigos os matem.";
-				next;
-				mes "[Jung]";
-				mes "Eles deixam cair ^FF0000Maçãs^000000, ^FF0000Poeira Poluente^000000,";
-				mes "^FF0000Bacillus^000000, ^FF0000Pó Venenoso^000000, ^FF0000Gás Tóxico^000000,";
-				mes "^FF0000Pó Combinado e ^FF0000Analgésico^000000.";
-				next;
-				mes "[Jung]";
-				mes "Tanto Noxious quanto Venomous são monstros de tamanho médio, que não possuem uma forma específica. Os Noxious possuem a propriedade Fantasma e os Venomous a propriedade Veneno.";
-				next;
-				mes "[Jung]";
-				mes "É melhor você tomar cuidado! Eles podem se aproximar de você sorrateiramente, através do ar, antes de atacá-lo sem aviso prévio.";
-				next;
-				mes "[Jung]";
-				mes "Isso é tudo que eu sei.";
-				mes "Se tiver qualquer pergunta sobre os monstros do Calabouço da Mina, sinta-se à vontade para perguntar. Vá com cuidado, aventureiro.";
-				close;
-			case 2:
-				mes "[Jung]";
-				mes "Hmm... Porcellio...";
-				mes "é um tipo de inseto.";
-				mes "ele se alimenta da água das estalactites";
-				mes "de uma caverna...";
-				next;
-				mes "[Jung]";
-				mes "Ele vive ao redor de minerais de alta qualidade.";
-				mes "como carvão, por exemplo.";
-				mes "";
-				next;
-				mes "[Jung]";
-				mes "Então os mineradores dizem que";
-				mes "se você tiver sorte poderá achar";
-				mes "esse pequeno inseto em uma caverna.";
-				mes "Porque";
-				next;
-				mes "[Jung]";
-				mes "você encontrará minerais muito bons";
-				mes "se procurar bem ";
-				mes "no chão ao redor";
-				mes "de um Porcellio.";
-				mes "";
-				next;
-				mes "[Jung]";
-				mes "O Porcellio é um monstro de uma classe menor de insetos";
-				mes "que possui a propriedade Terra.";
-				mes "E você pode conseguir ^FF0000Jubileu^000000, ^FF0000Antenas de Inseto^000000";
-				mes "^FF0000Células Únicas^000000, ^FF0000Dew Laden Moss^000000";
-				mes "^FF0000Líquido Fluorescente^000000 etc.";
-				next;
-				mes "[Jung]";
-				mes "Isso é tudo o que sei sobre os";
-				mes "Porcellio.";
-				mes "";
-				close;
-				case 3:
-					mes "[Jung]";
-					mes "A Obsidiana é chamada de";
-					mes "\Pedra que Respira\.";
-					mes "Sim, aquele mineral está vivo!";
-					next;
-					mes "[Jung]";
-					mes "As pessoas mais velhas acreditam que";
-					mes "há uma alma";
-					mes "dentro do mineral que possui";
-					mes "uma grande energia como a do carvão";
-					mes "ou a de alguns tipos de jóias.";
-					next;
-					mes "[Jung]";
-					mes "Aquela velha história surgiu";
-					mes "da lenda da Obsidiana.";
-					next;
-					mes "[Jung]";
-					mes "Nessa pedra de poucos gramas, ";
-					mes "existe um grande poder e";
-					mes "energia viva de uma mina!";
-					mes "É horrível!";
-					next;
-					mes "Então, se você colocar algumas delas";
-					mes "em um gerador de energia ou";
-					mes "uma máquina de fusão, ";
-					mes "as pessoas que vivem em outra cidade";
-					mes "verão a luz brilhante originada ali.";
-					next;
-					mes "[Jung]";
-					mes "Mas você tem de se preparar bem";
-					mes "se quiser caçá-lo.";
-					mes "Tenha cuidado.";
-					next;
-					mes "[Jung]";
-					mes "A Obsidiana é um monstro menor de classe neutra.";
-					mes "Você vai conseguir";
-					mes "^FF0000Diamantes^000000, ^FF0000Fragmentos de Cristal Negro^000000,";
-					mes "^FF0000Carvão^000000, ^FF0000Elunium^000000, ^FF0000Aço^000000";
-					mes "^FF0000Ferro^000000 e etc.";
-					next;
-					mes "[Jung]";
-					mes "Eu estou decepcionado por não";
-					mes "poder ver o poder lendário";
-					mes "de uma Obsidiana como energia pura.";
-					mes "Pois é impossível capturá-la viva.";
-					next;
-					mes "[Jung]";
-					mes "Bem, isso é tudo o que sei sobre";
-					mes "As Obsidianas.";
-					mes "";
-					close;
-				}
-
-			case 2:
-				mes "[Jung]";
-				mes "Eu entendo que você está com pressa. Mesmo assim, se você ainda não conhecer bem os arredores, deve aprender o máximo que puder, antes de entrar nos calabouços.";
-				next;
-				mes "[Jung]";
-				mes "É isso. Então ";
-				mes "cuide-se em suas";
-				mes "aventuras, certo?";
-				close;
-		}
-	}
 }
 
 einbech,148,246,5	script	Franz#ein	851,{
@@ -847,7 +709,7 @@ einbech,148,246,5	script	Franz#ein	851,{
 	mes "com alguém...";
 	next;
 	mes "[Franz]";
-	mes "Ei! Um"+((Sex)?"":"a")+" viajante! Você está planejando explorar o Calabouço da Mina ou os arredores daqui? Vamos bater papo um pouquinho, e talvez você aprenda algo.";
+	mes "Ei! Um"+ sex ? "o":"a" +" viajante! Você está planejando explorar o Calabouço da Mina ou os arredores daqui? Vamos bater papo um pouquinho, e talvez você aprenda algo.";
 	next;
 	switch (select ("OK, certo.","Não, obrigado.")) {
 	case 1:
@@ -933,13 +795,13 @@ einbech,148,246,5	script	Franz#ein	851,{
 	case 2:
 		mes "[Franz]";
 		mes "Ah, tudo bem.";
-		mes "Você é ocupad"+((Sex)?"o":"a")+" e tem coisas a fazer, eu entendo. Você com certeza tem lugares para visitar. Entendi.";
+		mes "Você é ocupad"+ sex ? "o":"a" +" e tem coisas a fazer, eu entendo. Você com certeza tem lugares para visitar. Entendi.";
 		next;
 		mes "[Franz]";
 		mes "Eu...";
 		mes "tenho coisas";
 		mes "que devo";
-		mes "resolver. Sim. Muito ocupad"+((Sex)?"o":"a")+".";
+		mes "resolver. Sim. Muito ocupad"+ sex ? "o":"a" +".";
 		close;
 	}
 }

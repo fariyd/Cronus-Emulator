@@ -1,51 +1,52 @@
-//===== rAthena Script =======================================
-//= War of Emperium SE - Auto-Start
-//===== By: ==================================================
-//= L0ne_W0lf
-//===== Current Version: =====================================
+//====================================================================
+//          _________                                                  
+//          \_   ___ \_______  ____   ____  __ __  ______             
+//          /    \  \/\_  __ \/    \ /    \|  |  \/  ___/              
+//          \     \____|  | \(  ( ) )   |  \  |  /\___ \               
+//           \______  /|__|   \____/|___|  /____//____  >              
+//                  \/                   \/           \/               
+//                                                               
+//====================== Cronus Script ===============================
+//= Guerra do Emperium SE - Auto Controle
+//===== Por: =========================================================
+//= rA dev Team; LyDe
+//===== Versão Atual: ================================================
 //= 1.0
-//===== Compatible With: =====================================
-//= rAthena SVN; RO Episode 11.3
-//===== Description: =========================================
-//= Auto Start for War of Emperium
-//= To know how to set up WoE times, go to doc\woe_time_explanation.txt
-//=============================================
-//= gettime(3): Gets hour (24 hour time)
-//= gettime(4): Gets day of week 1=Monday, 2=Tuesday,
-//= 3=Wednesday, 4=Thursday, etc.
-//===== Additional Comments: =================================
-//= 1.0 Copy/Paste of the original setter.
-//============================================================
+//===== Compatível com: ==============================================
+//= Cronus GIT
+//===== Descrição: ===================================================
+//= Auto controle da Guerra do Emperium
+//===== Comentários Adicionais: ======================================
+//= 1.0 Revisado [LyDe]
+//====================================================================
 
-// WoE Start/Stop times
-//============================================================
 -	script	Agit2_Event	-1,{
-	end;
+end;
 
-OnClock1800:	//start time for Tues(2), Thurs(4)
-OnClock2000:	//end time for Tues(2), Thurs(4)
-OnClock2100:	//start time for Sat(6)
-OnClock2300:	//end time for Sat(6)
+OnClock1800: // tempo para começar a ter (2), quinta (4)
+OnClock2000:// fim do tempo para ter (2), quinta (4)
+OnClock2100: // hora de início para a sábado (6)
+OnClock2300: // fim do tempo para sábado (6)
 
 OnAgitInit2:
-	// starting time checks
-	if((gettime(4)==2) && (gettime(3)>=18 && gettime(3)<21) ||
-	   (gettime(4)==4) && (gettime(3)>=18 && gettime(3)<21) ||
-	   (gettime(4)==6) && (gettime(3)>=22 && gettime(3)<23)) {
-		if (!agitcheck2()) {
-			AgitStart2;
-		}
-		end;
-	}
+// Controles de tempo
+if((gettime(4)==2) && (gettime(3)>=18 && gettime(3)<21) ||
+(gettime(4)==4) && (gettime(3)>=18 && gettime(3)<21) ||
+(gettime(4)==6) && (gettime(3)>=22 && gettime(3)<23)) {
+if (!agitcheck2()) {
+AgitStart2;
+}
+end;
+}
 
-	// end time checks
-	if ((gettime(4)==2) && (gettime(3)==21) ||
-	    (gettime(4)==4) && (gettime(3)==21) ||
-	    (gettime(4)==6) && (gettime(3)==23)) { 
-		if (agitcheck2()) {
-			AgitEnd2;
-		}
-		end;
-	}
-	end;
+// Fim de controles de horários
+if ((gettime(4)==2) && (gettime(3)==21) ||
+(gettime(4)==4) && (gettime(3)==21) ||
+(gettime(4)==6) && (gettime(3)==23)) {
+if (agitcheck2()) {
+AgitEnd2;
+}
+end;
+}
+end;
 }

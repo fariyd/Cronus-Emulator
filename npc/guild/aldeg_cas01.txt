@@ -1,45 +1,51 @@
-//===== rAthena Script =======================================
-//= War of Emperium (Al De Baran)
-//===== By: ==================================================
-//= L0ne_W0lf
-//===== Current Version: =====================================
-//= 1.2
-//===== Compatible With: =====================================
-//= rAthena SVN
-//===== Description: =========================================
-//= NPCs that relate to Al De Baran Guild Castle 1
-//===== Additional Comments: =================================
-//= 1.0 First Version. No longer uses functions. [L0ne_W0lf]
-//= 1.1 Removed dialog from interior flags. [L0ne_W0lf]
-//= 1.2 Partially rewrote Script. [Masao]
-//============================================================
+//====================================================================
+//          _________                                                  
+//          \_   ___ \_______  ____   ____  __ __  ______             
+//          /    \  \/\_  __ \/    \ /    \|  |  \/  ___/              
+//          \     \____|  | \(  ( ) )   |  \  |  /\___ \               
+//           \______  /|__|   \____/|___|  /____//____  >              
+//                  \/                   \/           \/               
+//                                                               
+//====================== Cronus Script ===============================
+//= Guerra do Emperium (Al De baran)
+//===== Por: =========================================================
+//= L0ne_W0lf; Axl
+//===== Versão Atual: ================================================
+//= 1.3
+//===== Compatível com: ==============================================
+//= Cronus GIT
+//===== Descrição: ===================================================
+//= NPCs referentes ao 1º Castelo de Al De baran
+//===== Comentários Adicionais: ======================================
+//= 1.3 Adicionado diálogos Oficiais do bRO. [Axl]
+//====================================================================
 
-// Guild Flags (Outside Castle)
+// Bandeira do Castelo (Fora do Castelo)
 //============================================================
--	script	Neuschwanstein#1::OutsideFlagsA1	722,{
+-	script	Sirius#1::OutsideFlagsA1	722,{
 
 	set .@GID, GetCastleData("aldeg_cas01",1);
 
 	if (.@GID == 0) {
-		mes "[ Edict of the Divine Rune-Midgarts Kingdom ]";
+		mes " [[Decreto do Reino de Rune Midgard]]";
 		mes " ";
-		mes "1. Follow the ordinance of The Divine Rune-Midgarts Kingdom, ";
-		mes "We declare that";
-		mes "there is no formal master of this castle.";
+		mes "1. Conforme o Pacto do Reino de Rune Midgard";
+		mes "e o Feudo de Luina,";
+		mes "declaro que este Castelo não possui um Senhor.";
 		mes " ";
-		mes "2. To the one who can ";
-		mes "overcome all trials";
-		mes "and destroy the Emperium,";
-		mes "the king will endow the one with";
-		mes "ownership of this castle.";
+		mes "2. Ao Clã que for bravo o bastante";
+		mes "e, superarando os terríveis desafios,";
+		mes "quebrar o Emperium,";
+		mes "será dada a posse deste Castelo";
+		mes "apoiado pelo nosso Rei.";
 		close;
 	}
 	if (getcharid(2) == .@GID) {
-		mes "[ Echoing Voice ]";
-		mes "Brave ones...";
-		mes "Do you wish to return to your honorable place?";
+		mes "[ Voz Ecoante ]";
+		mes "Bravo guerreiro......";
+		mes "Deseja retornar ao seu lugar de glória?";
 		next;
-		if(select("Return to the guild castle.:Quit.") == 1) {
+		if(select("Sim.: Não.") == 1) {
 			close2;
 			if (getcharid(2) == GetCastleData("aldeg_cas01",1)) {
 				warp "aldeg_cas01",218,170;
@@ -49,16 +55,16 @@
 		}
 		close;
 	}
-	mes "[ Edict of the Divine Rune-Midgarts Kingdom ]";
+	mes "[Decreto do Reino de Rune Midgard]";
 	mes " ";
-	mes "1. Follow the ordinance of The Divine Rune-Midgarts Kingdom, ";
-	mes "we approve that this place is in";
-	mes "the private prossession of ^ff0000"+GetGuildName(.@GID)+"^000000 Guild.";
+	mes "1. Conforme o Pacto do Reino de Rune Midgard";
+	mes "e o Feudo de Luina,";
+	mes "declaro que este castelo pertence ao Clã ^ff0000" + GetGuildName(.@GID) + "^000000 .";
 	mes " ";
-	mes "2. The guild Master of ^ff0000"+GetGuildName(.@GID)+"^000000 Guild is";
-	mes "^ff0000"+GetGuildMaster(.@GID)+"^000000";
-	mes "If there is anyone who objects to this,";
-	mes "prove your strength and honor with a steel blade in your hand.";
+	mes "2. O Líder do Clã ^ff0000"+ GetGuildName(.@GID) + "^000000 se chama";
+	mes "^FF0000" + GetGuildMaster(.@GID) + "^000000";
+	mes "Se alguém se opõe a este decreto";
+	mes "desembainhe sua espada para fazer valer sua vontade.";
 	close;
 
 OnRecvCastleA01:
@@ -66,14 +72,14 @@ OnRecvCastleA01:
 	end;
 }
 
-alde_gld,61,87,6	duplicate(OutsideFlagsA1)	Neuschwanstein#1-2	722
-alde_gld,61,79,6	duplicate(OutsideFlagsA1)	Neuschwanstein#2	722
-alde_gld,45,87,8	duplicate(OutsideFlagsA1)	Neuschwanstein#3	722
-alde_gld,51,87,8	duplicate(OutsideFlagsA1)	Neuschwanstein#4	722
+alde_gld,61,87,6	duplicate(OutsideFlagsA1)	Sirius#1-2	722
+alde_gld,61,79,6	duplicate(OutsideFlagsA1)	Sirius#2	722
+alde_gld,45,87,8	duplicate(OutsideFlagsA1)	Sirius#3	722
+alde_gld,51,87,8	duplicate(OutsideFlagsA1)	Sirius#4	722
 
-// Guild Flags (Inside Castle)
+// Bandeira do Castelo (Dentro do Castelo)
 //============================================================
--	script	Neuschwanstein#5::InsideFlagsA1	722,{
+-	script	Sirius#5::InsideFlagsA1	722,{
 	end;
 
 OnRecvCastleA01:
@@ -81,45 +87,45 @@ OnRecvCastleA01:
 	end;
 }
 
-aldeg_cas01,30,248,4	duplicate(InsideFlagsA1)	Neuschwanstein#5-2	722
-aldeg_cas01,30,248,4	duplicate(InsideFlagsA1)	Neuschwanstein#6	722
-aldeg_cas01,37,248,4	duplicate(InsideFlagsA1)	Neuschwanstein#7	722
-aldeg_cas01,37,246,4	duplicate(InsideFlagsA1)	Neuschwanstein#8	722
-aldeg_cas01,30,246,4	duplicate(InsideFlagsA1)	Neuschwanstein#9	722
-aldeg_cas01,95,80,2	duplicate(InsideFlagsA1)	Neuschwanstein#10	722
-aldeg_cas01,95,59,2	duplicate(InsideFlagsA1)	Neuschwanstein#11	722
-aldeg_cas01,62,75,2	duplicate(InsideFlagsA1)	Neuschwanstein#12	722
-aldeg_cas01,66,75,2	duplicate(InsideFlagsA1)	Neuschwanstein#13	722
-aldeg_cas01,70,75,2	duplicate(InsideFlagsA1)	Neuschwanstein#14	722
-aldeg_cas01,74,75,2	duplicate(InsideFlagsA1)	Neuschwanstein#15	722
-aldeg_cas01,62,64,2	duplicate(InsideFlagsA1)	Neuschwanstein#16	722
-aldeg_cas01,66,64,2	duplicate(InsideFlagsA1)	Neuschwanstein#17	722
-aldeg_cas01,70,64,2	duplicate(InsideFlagsA1)	Neuschwanstein#18	722
-aldeg_cas01,74,64,2	duplicate(InsideFlagsA1)	Neuschwanstein#19	722
-aldeg_cas01,74,64,2	duplicate(InsideFlagsA1)	Neuschwanstein#20	722
-aldeg_cas01,203,150,4	duplicate(InsideFlagsA1)	Neuschwanstein#21	722
-aldeg_cas01,210,150,4	duplicate(InsideFlagsA1)	Neuschwanstein#22	722
+aldeg_cas01,30,248,4	duplicate(InsideFlagsA1)	Sirius#5-2	722
+aldeg_cas01,30,248,4	duplicate(InsideFlagsA1)	Sirius#6	722
+aldeg_cas01,37,248,4	duplicate(InsideFlagsA1)	Sirius#7	722
+aldeg_cas01,37,246,4	duplicate(InsideFlagsA1)	Sirius#8	722
+aldeg_cas01,30,246,4	duplicate(InsideFlagsA1)	Sirius#9	722
+aldeg_cas01,95,80,2	duplicate(InsideFlagsA1)	Sirius#10	722
+aldeg_cas01,95,59,2	duplicate(InsideFlagsA1)	Sirius#11	722
+aldeg_cas01,62,75,2	duplicate(InsideFlagsA1)	Sirius#12	722
+aldeg_cas01,66,75,2	duplicate(InsideFlagsA1)	Sirius#13	722
+aldeg_cas01,70,75,2	duplicate(InsideFlagsA1)	Sirius#14	722
+aldeg_cas01,74,75,2	duplicate(InsideFlagsA1)	Sirius#15	722
+aldeg_cas01,62,64,2	duplicate(InsideFlagsA1)	Sirius#16	722
+aldeg_cas01,66,64,2	duplicate(InsideFlagsA1)	Sirius#17	722
+aldeg_cas01,70,64,2	duplicate(InsideFlagsA1)	Sirius#18	722
+aldeg_cas01,74,64,2	duplicate(InsideFlagsA1)	Sirius#19	722
+aldeg_cas01,74,64,2	duplicate(InsideFlagsA1)	Sirius#20	722
+aldeg_cas01,203,150,4	duplicate(InsideFlagsA1)	Sirius#21	722
+aldeg_cas01,210,150,4	duplicate(InsideFlagsA1)	Sirius#22	722
 
-// Guild Flag (Town)
+// Bandeira do Castelo (Cidade)
 //============================================================
-aldebaran,152,97,4	duplicate(InsideFlagsA1)	Neuschwanstein#23	722
+aldebaran,152,97,4	duplicate(InsideFlagsA1)	Sirius#23	722
 
-// Kafra Employee
+// Serviço Kafra
 //============================================================
-aldeg_cas01,218,170,0	duplicate(guildkafra)	Kafra Staff#aldeg_cas01	117
+aldeg_cas01,218,170,0	duplicate(guildkafra)	Kafra#aldeg_cas01	117
 
-// Steward
+// Administrador do Castelo
 //============================================================
 aldeg_cas01,218,175,0	duplicate(cm)	Alfredo#aldeg_cas01	55
 
-// Treasure Room Exit
+// Saída da Sala do Mestre
 //============================================================
 aldeg_cas01,123,223,0	script	#lever_A01	111,{
 
 	mes " ";
-	mes "There's a small lever. Will you pull it?";
+	mes "Há uma pequena alavanca, você deseja acioná-la?";
 	next;
-	if(select("Pull.:Do not.") == 1) {
+	if(select("Acionar.:Não acionar.") == 1) {
 		close2;
 		warp "aldeg_cas01",218,176;
 		end;
@@ -127,18 +133,18 @@ aldeg_cas01,123,223,0	script	#lever_A01	111,{
 	close;
 }
 
-// Guild Dungeon Switch
+// Mudanças de Cavernas da Guild
 //============================================================
 aldeg_cas01,211,181,0	duplicate(gdlever)	#aldeg_cas01	111
 
-// Guild Treasure Spawns
+// Spawns do Tesouro da Guild
 //============================================================
 aldeg_cas01,118,223,0	duplicate(Gld_Trea_Spawn)	Treasure#aldeg_cas01	-1
 
-// AGIT Manager
+// Gerenciador Automático
 //============================================================
 aldeg_cas01,216,24,0	duplicate(Gld_Agit_Manager)	Agit#aldeg_cas01	-1
 
-// Guardians
+// Guardiões
 //============================================================
 aldeg_cas01,218,175,0	duplicate(Gld_Guard_Template)	Guardian#aldeg_cas01	-1

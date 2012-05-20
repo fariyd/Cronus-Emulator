@@ -1,4 +1,4 @@
-//====================================================================
+﻿//====================================================================
 //          _________                                                  
 //          \_   ___ \_______  ____   ____  __ __  ______             
 //          /    \  \/\_  __ \/    \ /    \|  |  \/  ___/              
@@ -11,13 +11,14 @@
 //===== Por: =========================================================
 //= rA dev Team; LyDe
 //===== Versão Atual: ================================================
-//= 3.0
+//= 3.1
 //===== Compatível com: ==============================================
 //= Cronus GIT
 //===== Descrição: ===================================================
 //= NPCs referentes a cidade de Louyang
 //===== Comentários Adicionais: ======================================
 //= 3.0 Adicionado diálogos Oficiais do bRO. [LyDe]
+//= 3.1 Pequenas modificações. [Axl]
 //====================================================================
 
 // Louyang
@@ -158,7 +159,7 @@ louyang,297,167,2	script	Mulher Musculosa#lou	815,{
 	close;
 }
 
-louyang,274,136,4	script	Olhando Cara Poderoso#lou	819,{
+louyang,274,136,4	script	Olhando Cara Poderoso#lo	819,{
 	mes "[Akiira]";
 	mes "Estou praticando a 'Garra do Dragão'. Não basta usar o poder dos meus punhos, também é preciso se condicionar espiritualmente.";
 	next;
@@ -261,7 +262,7 @@ louyang,272,129,0	duplicate(LouTrainee)	Aluno#12lou	819
 
 // Louyang Viewing Tower
 //============================================================
-lou_in01,25,23,5	script	Olhando Senhorita Amigável#lo	817,{
+lou_in01,25,23,5	script	Olhando Senhorita#lou	817,{
 	mes "[Hong Miao]";
 	mes "Bem-vindo.";
 	next;

@@ -353,3 +353,28 @@ function	script	Time2Str	{
 	
 	return .@Time$;
 }
+
+// Cronus-Emulator [Mehah]
+
+function	script	skill:add	{
+	if (Zeny < getarg(0)){
+		mes "Desculpe, mas você não possui zeny suficiente.";
+		close;
+	}
+	for(set @i,1; @i <= getarg(1); set @i,@i+1){
+		if(getskilllv(getarg(@i+1)) == FALSE){
+			skill getarg(@i+1),1,0;
+			setarray @skill_name$[@i],callfunc("getskillname",getarg(@i+1));
+		}else
+		if(@i == getarg(1)){
+			mes "Você já possui as habilidades!";
+			close;
+		}
+	}
+		set zeny, Zeny - getarg(0);
+		mes "Parabéns, acabou de receber sua(s) habilidades(s).";
+		for(set @i,1;@i <= getarraysize(@skill_name$); set @i,@i+1)
+			mes @skill_name$[@i];
+		cleararray @skill_name$[1],"",getarraysize(@skill_name$);
+		close;
+}

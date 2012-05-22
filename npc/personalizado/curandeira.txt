@@ -1,22 +1,24 @@
-//===== Cronus Script ======================================== 
+//====================================================================
+//          _________                                                  
+//          \_   ___ \_______  ____   ____  __ __  ______             
+//          /    \  \/\_  __ \/    \ /    \|  |  \/  ___/              
+//          \     \____|  | \(  ( ) )   |  \  |  /\___ \               
+//           \______  /|__|   \____/|___|  /____//____  >              
+//                  \/                   \/           \/               
+//                                                               
+//====================== Cronus Script ===============================
 //= Curandeira
-//===== Por: =================================================
+//===== Por: =========================================================
 //= DennyLoko
-//===== Versão Atual: ======================================== 
-//= 1.3a
-//===== Descrição: =========================================== 
+//===== Versão Atual: ================================================
+//= 1.4
+//===== Compatível com: ==============================================
+//= Cronus GIT
+//===== Descrição: ===================================================
 //= Recupera HP e SP gratuitamente
-//= Usado as cordenadas do NPC do eAthena
-//===== Changelog: =========================================== 
-//= 1.0 Iniciado o Npc [DennyLoko]
-//= 1.1 Organizado o NPc [Kamper]
-//= 1.1b corrigindo erro na duplicate de rachel [Tiu Skan]
-//= - Removidos ".gat" 
-//= Script Reestruturado [Mehah]
-//= 1.2 Removido falas, adicionado cura de Homunculo e Moscóvia. [RoM]
-//= 1.3 Adicionado a opção paga. [RoM]
-//= 1.3a Removido show [Keoy]
-//============================================================
+//===== Comentários Adicionais: ======================================
+//= 1.4 Removido HealHomun [Axl]
+//====================================================================
 
 prontera,150,184,5	script	Curandeira#hG1-1::HealerG	91,{
 
@@ -43,7 +45,6 @@ set .@pago,0; //0 = grátis, 1 = pago
 		}
 	}
 	percentheal 100,100;
-	if(gethominfo(1)) healhomun 100,100;
 	end;
 
 cura:

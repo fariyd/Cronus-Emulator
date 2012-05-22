@@ -43,16 +43,12 @@ set @sdung,	1;	// Exibir calabouços no menu? (Nota 1)
 	mes "Olá "+strcharinfo(0)+", seja bem-vindo ao Serviço de Teletransporte!";
 	mes "Para onde você gostaria de ir?";
 	next;
-	switch (select (((@lwarp)?"Último Destino":"")+"","Cidades",""+((@sdung)?"Outros Lugares":"")))
-	{
+	switch (select (((@lwarp)?"Último Destino":"")+"","Cidades",""+((@sdung)?"Outros Lugares":""))) {
 		case 1:
-			if (lwarpx)
-			{
+			if (lwarpx) {
 				warp lwarp$, lwarpx, lwarpy;
 				end;
-			}
-			else
-			{
+			} else {
 				next;
 				mes "[Teletransportadora]";
 				mes "Você ainda não utilizou nosso serviço!";
@@ -65,8 +61,7 @@ set @sdung,	1;	// Exibir calabouços no menu? (Nota 1)
 			next;
 			switch (select ("Prontera","Alberta","Aldebaran","Amatsu","Ayothaya","Brasilis","Comodo","Einbech","Einbroch","Esplendor","Geffen","Gonryun",
 							"Hugel","Izlude","Jawaii","Juno","Lighthalzen","Louyang","Lutie","Manuka","Morroc","Moscovia","Ilha Esquecida","Niflheim",
-							"Payon","Rachel","Umbala","Veins"))
-			{
+							"Payon","Rachel","Umbala","Veins")) {
 			
 				case 1: callsub F_DoWarp, "prontera", 156, 191;	
 				case 2: callsub F_DoWarp, "alberta", 192, 147;
@@ -106,8 +101,7 @@ set @sdung,	1;	// Exibir calabouços no menu? (Nota 1)
 							"Calabouço da Mina","Gefenia","Calabouço de Geffen","Glast Heim","Santuário de Xi Wang Mu","Labirinto da Floresta","Caverna de Gelo","Ruínas de Juperos","Fábrica de Robôs","Biolaboratório de Somatologia",
 							"A Tumba Real","Calabouço de Magma","Floresta Encantada","Campos de Niflheim","Santuário de Odin","Caverna dos Orcs","Caverna de Payon","Esgoto de Prontera",
 							"Pirâmide","Santuário de Rachel","Esfinge","Navio Fantasma","Torre de Thanatos","Vulcão de Thor","Fábrica de Brinquedos","Ilha da Tartaruga","Loja de Carpintaria","Caverna das Cataratas",
-							"Poringlândia","Praia das Focas"))
-			{
+							"Poringlândia","Praia das Focas")) {
 			
 				case 1: callsub F_DoWarp, "nameless_n", 164, 184;
 				case 2: callsub F_DoWarp, "abyss_01", 264, 271;
@@ -119,8 +113,7 @@ set @sdung,	1;	// Exibir calabouços no menu? (Nota 1)
 					mes "[Teletransportadora]";
 					mes "Por favor, seja mais específico:";
 					next;
-					switch (select ("Caverna do Oeste:Caverna do Norte:Caverna do Leste"))
-					{
+					switch (select ("Caverna do Oeste:Caverna do Norte:Caverna do Leste")) {
 						case 1: callsub F_DoWarp, "comodo", 30, 215;
 						case 2: callsub F_DoWarp, "comodo", 176, 352;
 						case 3: callsub F_DoWarp, "comodo", 327, 175;
@@ -162,8 +155,7 @@ set @sdung,	1;	// Exibir calabouços no menu? (Nota 1)
 	}
 	
 	F_DoWarp:
-		if (@lwarp)
-		{
+		if (@lwarp) {
 			set lwarp$, getarg(0);
 			set lwarpx, getarg(1);
 			set lwarpy, getarg(2);

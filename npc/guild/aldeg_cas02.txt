@@ -127,11 +127,11 @@ aldeg_cas02,139,234,0	script	#lever_A02	111,{
 	close;
 }
 
-// Mudanças de Cavernas da Guild
+// Mudanças nas Cavernas do Clã
 //============================================================
 aldeg_cas02,194,136,0	duplicate(gdlever)	#aldeg_cas02	111
 
-// Spawns do Tesouro da Guild
+// Spawns do Tesouro do Clã
 //============================================================
 aldeg_cas02,135,230,0	duplicate(Gld_Trea_Spawn)	Treasure#aldeg_cas02	-1
 

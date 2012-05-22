@@ -20,7 +20,7 @@
 //= 1.3 Adicionado diálogos Oficiais do bRO. [Axl]
 //====================================================================
 
-// Guild Flag (Outside Castle)
+// Bandeira do Castelo (Fora do Castelo)
 //============================================================
 -	script	Acrux#1::OutsideFlagsA5	722,{
 
@@ -75,7 +75,7 @@ OnRecvCastleA05:
 alde_gld,265,93,6	duplicate(OutsideFlagsA5)	Acrux#1-2	722
 alde_gld,265,87,6	duplicate(OutsideFlagsA5)	Acrux#2	722
 
-// Guild Flag (Inside Castle)
+// Bandeira do Castelo (Dentro do Castelo)
 //============================================================
 -	script	Acrux#3::InsideFlagsA5	722,{
 	end;
@@ -102,19 +102,19 @@ aldeg_cas05,154,51,2	duplicate(InsideFlagsA5)	Acrux#16	722
 aldeg_cas05,22,211,2	duplicate(InsideFlagsA5)	Acrux#17	722
 aldeg_cas05,150,202,2	duplicate(InsideFlagsA5)	Acrux#18	722
 
-// Guild Flag (Town)
+// Bandeira do Castelo (Cidade)
 //============================================================
 aldebaran,128,97,4	duplicate(InsideFlagsA5)	Acrux#19	722
 
-// Kafra Employee
+// Serviço Kafra
 //============================================================
 aldeg_cas05,31,190,0	duplicate(guildkafra)	Kafra#aldeg_cas05	117
 
-// Steward
+// Administrador do Castelo
 //============================================================
 aldeg_cas05,51,179,0	duplicate(cm)	Esmarehk#aldeg_cas05	55
 
-// Treasure Room Exit
+// Saída da Sala do Mestre
 //============================================================
 aldeg_cas05,64,8,0	script	#lever_A05	111,{
 
@@ -129,18 +129,18 @@ aldeg_cas05,64,8,0	script	#lever_A05	111,{
 	close;
 }
 
-// Guild Dungeon Switch
+// Mudanças nas Cavernas do Clã
 //============================================================
 aldeg_cas05,22,205,0	duplicate(gdlever)	#aldeg_cas05	111
 
-// Guild Treasure Spawns
+// Spawns do Tesouro do Clã
 //============================================================
 aldeg_cas05,62,12,0	duplicate(Gld_Trea_Spawn)	Treasure#aldeg_cas05	-1
 
-// AGIT Manager
+// Gerenciador Automático
 //============================================================
 aldeg_cas05,28,102,0	duplicate(Gld_Agit_Manager)	Agit#aldeg_cas05	-1
 
-// Guardians
+// Guardiões
 //============================================================
 aldeg_cas05,52,179,0	duplicate(Gld_Guard_Template)	Guardian#aldeg_cas05	-1

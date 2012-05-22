@@ -107,15 +107,15 @@ aldeg_cas04,169,15,2	duplicate(InsideFlagsA4)	Rigel#19	722
 //============================================================
 aldebaran,131,97,4	duplicate(InsideFlagsA4)	Rigel#20	722
 
-// Kafra Employee
+// Serviço Kafra
 //============================================================
 aldeg_cas04,45,88,0	duplicate(guildkafra)	Kafra#aldeg_cas04	117
 
-// Steward
+// Administrador do Castelo
 //============================================================
 aldeg_cas04,67,116,0	duplicate(cm)	Brymhensen#aldeg_cas04	55
 
-// Treasure Room Exit
+// Saída da Sala do Mestre
 //============================================================
 aldeg_cas04,83,17,0	script	#lever_A04	111,{
 
@@ -130,18 +130,18 @@ aldeg_cas04,83,17,0	script	#lever_A04	111,{
 	close;
 }
 
-// Guild Dungeon Switch
+// Mudanças nas Cavernas do Clã
 //============================================================
 aldeg_cas04,76,64,0	duplicate(gdlever)	#aldeg_cas04	111
 
-// Guild Treasure Spawns
+// Spawns do Tesouro do Clã
 //============================================================
 aldeg_cas04,84,13,0	duplicate(Gld_Trea_Spawn)	Treasure#aldeg_cas04	-1
 
-// AGIT Manager
+// Gerenciador Automático
 //============================================================
 aldeg_cas04,36,218,0	duplicate(Gld_Agit_Manager)	Agit#aldeg_cas04	-1
 
-// Guardians
+// Guardiões
 //============================================================
 aldeg_cas04,67,116,0	duplicate(Gld_Guard_Template)	Guardian#aldeg_cas04	-1

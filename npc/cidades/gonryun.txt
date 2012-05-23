@@ -1,4 +1,4 @@
-Ôªø//====================================================================
+//====================================================================
 //          _________                                                  
 //          \_   ___ \_______  ____   ____  __ __  ______             
 //          /    \  \/\_  __ \/    \ /    \|  |  \/  ___/              
@@ -10,70 +10,70 @@
 //= NPCs referentes a cidade de Kunlun
 //===== Por: =========================================================
 //= x[tsk]; KarLaeda; L.Otoni
-//===== Vers√£o Atual: ================================================
+//===== Vers„o Atual: ================================================
 //= 1.6
-//===== Compat√≠vel com: ==============================================
+//===== CompatÌvel com: ==============================================
 //= Cronus GIT
-//===== Descri√ß√£o: ===================================================
+//===== DescriÁ„o: ===================================================
 //= NPCs referentes a cidade de Kunlun
-//===== Coment√°rios Adicionais: ======================================
-//= 1.6 Adicionado di√°logos Oficiais do bRO. [L.Otoni]
+//===== Coment·rios Adicionais: ======================================
+//= 1.6 Adicionado di·logos Oficiais do bRO. [L.Otoni]
 //====================================================================
 
 // Kulun NPC de teletransporte
 //============================================================ 
 alberta,245,69,3	script	Barqueiro de Kunlun#gon	776,{
 	mes "[Wabakho]";
-	mes "Sauda√ß√µes. Eu gostaria de";
-	mes "convidar todos voc√™s a Kunlun.";
+	mes "SaudaÁıes. Eu gostaria de";
+	mes "convidar todos vocÍs a Kunlun.";
 	mes "Eu tenho a honra de ser o encarregado";
-	mes "de transportar os cidad√£os de Rune Midgard";
-	mes "a um pa√≠s completamente novo, Kunlun!";
+	mes "de transportar os cidad„os de Rune Midgard";
+	mes "a um paÌs completamente novo, Kunlun!";
 	next;
 	switch(select("Saber mais sobre Kunlun...:Ir para Kunlun.:Cancelar.")) {
 	case 1:
 		mes "[Wabakho]";
-		mes "Kunlun √© o melhor lugar";
+		mes "Kunlun È o melhor lugar";
 		mes "para realizar as fantasias de pessoas";
-		mes "de toda Midgard. Voc√™ ir√° passar pela";
+		mes "de toda Midgard. VocÍ ir· passar pela";
 		mes "casa em miniatura na Vila dos Pigmeus";
-		mes "e entrar em Kunlun atrav√©s de";
+		mes "e entrar em Kunlun atravÈs de";
 		mes "um pilar feito de uma luz encantadora.";
 		next;
 		mes "[Wabakho]";
-		mes "Eu ouvi dizer que os s√°bios daqui constru√≠ram";
+		mes "Eu ouvi dizer que os s·bios daqui construÌram";
 		mes "uma cidade voadora...";
-		mes "√â um feito impressionante, por√©m Kunlun sempre";
-		mes "flutuou no c√©u naturalmente! Kunlun";
+		mes "… um feito impressionante, porÈm Kunlun sempre";
+		mes "flutuou no cÈu naturalmente! Kunlun";
 		mes "possui a mais bela vista do mundo!";
 		next;
 		mes "[Wabakho]";
-		mes "Nossas especialidades locais s√£o p√£o doce de passas";
-		mes "e p√™ssego, s√£o suculentos e deliciosos.";
-		mes "Como era de se esperar, um novo calabou√ßo";
+		mes "Nossas especialidades locais s„o p„o doce de passas";
+		mes "e pÍssego, s„o suculentos e deliciosos.";
+		mes "Como era de se esperar, um novo calabouÁo";
 		mes "repleto de novos perigos o espera em Kunlun,";
-		mes "ent√£o esteja bem preparado quando resolver ir l√°!";
+		mes "ent„o esteja bem preparado quando resolver ir l·!";
 		next;
 		mes "[Wabakho]";
-		mes "Quando voc√™ desejar partir, por favor me informe.";
-		mes "√â um grande prazer servir pessoas, como";
-		mes "voc√™, do continente de Midgard.";
+		mes "Quando vocÍ desejar partir, por favor me informe.";
+		mes "… um grande prazer servir pessoas, como";
+		mes "vocÍ, do continente de Midgard.";
 		close;
 	case 2:
 		mes "[Wabakho]";
 		mes "Bem, tudo pronto para a viagem?";
-		mes "N√≥s cobramos 10,000z por uma";
+		mes "NÛs cobramos 10,000z por uma";
 		mes "passagem para Kunlun.";
-		mes "A passagem √© apenas v√°lida para uma ida,";
-		mes "mas voc√™ pode voltar quando desejar sem custo algum.";
+		mes "A passagem È apenas v·lida para uma ida,";
+		mes "mas vocÍ pode voltar quando desejar sem custo algum.";
 		next;
 		mes "[Wabakho]";
-		mes "Voc√™ quer embarcar agora?";
+		mes "VocÍ quer embarcar agora?";
 		next;
-		if (select("S√≥ se for agora!:Hmm, talvez outra hora.") == 1) {
+		if (select("SÛ se for agora!:Hmm, talvez outra hora.") == 1) {
 			if (Zeny > 9999) {
 				mes "[Wabakho]";
-				mes "Tripula√ß√£o, preparem-se para a partida.";
+				mes "TripulaÁ„o, preparem-se para a partida.";
 				close2;
 				set zeny,zeny-10000;
 				warp "gon_fild01",258,82;
@@ -81,29 +81,29 @@ alberta,245,69,3	script	Barqueiro de Kunlun#gon	776,{
 			}
 			mes "[Wabakho]";
 			mes "Eu sinto muito, mas";
-			mes "voc√™ precisa trazer 10,000z";
+			mes "vocÍ precisa trazer 10,000z";
 			mes "para comprar sua passagem.";
-			mes "Por favor, tenha certeza de que voc√™ ";
+			mes "Por favor, tenha certeza de que vocÍ ";
 			mes "tem dinheiro suficiente. Obrigado.";
 			close;
 		}
 		mes "[Wabakho]";
 		mes "Por favor, me avise se desejar visitar Kunlun.";
-		mes "√â um grande prazer servir pessoas, como";
-		mes "voc√™, do continente de Midgard.";
+		mes "… um grande prazer servir pessoas, como";
+		mes "vocÍ, do continente de Midgard.";
 		close;
 	case 3:
 		mes "[Wabakho]";
 		mes "Por favor, me avise se desejar visitar Kunlun.";
-		mes "√â um grande prazer servir pessoas, como";
-		mes "voc√™, do continente de Midgard.";
+		mes "… um grande prazer servir pessoas, como";
+		mes "vocÍ, do continente de Midgard.";
 		close;
 	}
 }
 
 gon_fild01,255,79,7	script	Anunciante de Kunlun#2	776,{
 	mes "[Wabakho]";
-	mes "E ent√£o ilustre visitante,";
+	mes "E ent„o ilustre visitante,";
 	mes "o que achou de Kunlun?";
 	mes "Podemos partir para o continente quando";
 	mes "quiser, basta dar as ordens.";
@@ -112,7 +112,7 @@ gon_fild01,255,79,7	script	Anunciante de Kunlun#2	776,{
 		mes "[Wabakho]";
 		mes "Espero que tenha gostado de Kunlun";
 		mes "e que volte a nos visitar no futuro.";
-		mes "Tripula√ß√£o, prepare-se para a partida!";
+		mes "TripulaÁ„o, prepare-se para a partida!";
 		close2;
 		warp "alberta",243,67;
 		end;
@@ -120,15 +120,15 @@ gon_fild01,255,79,7	script	Anunciante de Kunlun#2	776,{
 	mes "[Wabakho]";
 	mes "Demore o tempo que quiser aqui, amigo.";
 	mes "Existem muitos lugares misteriosos";
-	mes "em Kunlun pra voc√™ visitar.";
+	mes "em Kunlun pra vocÍ visitar.";
 	close;
 }
 
 gon_fild01,187,239,7	script	Anunciante de Kunlun#3	776,{
 	mes "[Jangchungryong]";
-	mes "Por favor, v√° para o andar de cima.";
-	mes "Eu espero que voc√™ tenha v√°rias";
-	mes "mem√≥rias boas de Kunlun quando";
+	mes "Por favor, v· para o andar de cima.";
+	mes "Eu espero que vocÍ tenha v·rias";
+	mes "memÛrias boas de Kunlun quando";
 	mes "voltar para a sua terra natal.";
 	close;
 }
@@ -141,8 +141,8 @@ gonryun,153,64,7	script	Anunciante de Kunlun#4	776,{
 	next;
 	if (select("Retornar ao porto.:Cancelar.") == 1) {
 		mes "[Jangchungryong]";
-		mes "Eu espero que voc√™ tenha se divertido conosco.";
-		mes "Vamos indo ent√£o?";
+		mes "Eu espero que vocÍ tenha se divertido conosco.";
+		mes "Vamos indo ent„o?";
 		close2;
 		warp "gon_fild01",258,82;
 		end;
@@ -150,7 +150,7 @@ gonryun,153,64,7	script	Anunciante de Kunlun#4	776,{
 	mes "[Jangchungryong]";
 	mes "Demore o tempo que quiser aqui, amigo.";
 	mes "Existem muitos lugares misteriosos";
-	mes "em Kunlun pra voc√™ visitar.";
+	mes "em Kunlun pra vocÍ visitar.";
 	close;
 }
 
@@ -158,8 +158,8 @@ gonryun,153,64,7	script	Anunciante de Kunlun#4	776,{
 //============================================================ 
 gonryun,200,82,3	script	SungSon Gam#gon	774,{
 	mes "[SungSon Gam]";
-	mes "Festas s√£o sempre divertidas.";
-	mes "√â por isso que eu amo essa cidade.";
+	mes "Festas s„o sempre divertidas.";
+	mes "… por isso que eu amo essa cidade.";
 	mes "Essa cidade me faz sentir como";
 	mes "se eu vivesse em uma grande festa.";
 	close;
@@ -167,80 +167,80 @@ gonryun,200,82,3	script	SungSon Gam#gon	774,{
 
 gonryun,268,88,3	script	Liang Zhun Bu#gon	776,{
 	mes "[JoonPo Lyang]";
-	mes "Somos uma na√ß√£o independente e orgulhosa.";
+	mes "Somos uma naÁ„o independente e orgulhosa.";
 	mes "Sempre lutamos bravamente contra os invasores";
-	mes "que tentaram tomar essa terra aben√ßoada. ";
-	mes "E vencemos todas as batalhas por nossa terra at√© hoje.";
+	mes "que tentaram tomar essa terra abenÁoada. ";
+	mes "E vencemos todas as batalhas por nossa terra atÈ hoje.";
 	next;
 	mes "[JoonPo Lyang]";
-	mes "N√≥s acreditamos na can√ß√£o da Vit√≥ria Triunfal!";
-	mes "Ela representa o esp√≠rito de nossa na√ß√£o! ";
+	mes "NÛs acreditamos na canÁ„o da VitÛria Triunfal!";
+	mes "Ela representa o espÌrito de nossa naÁ„o! ";
 	close;
 }
 
 gonryun,118,111,5	script	WonSuk Chen#gon	89,{
 	mes "[WonSuk Chen]";
-	mes "O governador dessa cidade √© ";
-	mes "um homem de grande cora√ß√£o. ";
-	mes "Mas j√° ouvi falar de alguns que";
-	mes "n√£o confiam em seu car√°ter. Estranho...";
+	mes "O governador dessa cidade È ";
+	mes "um homem de grande coraÁ„o. ";
+	mes "Mas j· ouvi falar de alguns que";
+	mes "n„o confiam em seu car·ter. Estranho...";
 	next;
 	mes "[Wonsuk Chen]";
-	mes "Bom, eu gosto de nossa cidade. Os esfor√ßos ";
+	mes "Bom, eu gosto de nossa cidade. Os esforÁos ";
 	mes "de nosso governador fazem daqui um bom lugar.";
 	mes "Eu realmente espero que alguns ingratos";
-	mes "n√£o atrapalhem seu bom trabalho.";
+	mes "n„o atrapalhem seu bom trabalho.";
 	close;
 }
 
 gonryun,181,161,3	script	MoonJin Chung#gon	773,{
 	mes "[MoonJin Chung]";
-	mes "Os homens daqui s√£o chamados de KunLuns, e";
-	mes "s√£o homens bravos e en√©rgicos.";
-	mes "Mas h√° uma dificuldade muita grande";
+	mes "Os homens daqui s„o chamados de KunLuns, e";
+	mes "s„o homens bravos e enÈrgicos.";
+	mes "Mas h· uma dificuldade muita grande";
 	mes "para se casarem atualmente...";
 	next;
 	mes "[MoonJin Chung]";
 	mes "Isso porque existem hoje";
 	mes "muito mais homens que mulhres.";
 	mes "Nem certeza se meu filho";
-	mes "conseguir√° se casar";
+	mes "conseguir· se casar";
 	mes "eu tenho. Hmm...";
 	close;
 }
 
-gonryun,113,135,6	script	Guardi√£o#gon	780,{
-	mes "[Guardi√£o]";
+gonryun,113,135,6	script	Guardi„o#gon	780,{
+	mes "[Guardi„o]";
 	mes "Bem vindo! Sou um humilde servidor";
 	mes "de SaYumMoon, o governador";
 	mes "dessa cidade.";
 	next;
-	mes "[Guardi√£o]";
-	mes "Acredito que n√£o v√° acontecer";
-	mes "mas, se voc√™ agir de maneira suspeita,";
+	mes "[Guardi„o]";
+	mes "Acredito que n„o v· acontecer";
+	mes "mas, se vocÍ agir de maneira suspeita,";
 	mes "serei obrigado a te prender. ";
 	next;
-	mes "[Guardi√£o]";
-	mes "Mas n√£o se preocupe.";
-	mes "N√£o acredito que isso v√° acontecer.";
+	mes "[Guardi„o]";
+	mes "Mas n„o se preocupe.";
+	mes "N„o acredito que isso v· acontecer.";
 	mes "Aproveite sua estada!";
 	close;
 }
 
-gonryun,113,127,6	script	Guardi√£o#gon2	780,{
-	mes "[Guardi√£o]";
+gonryun,113,127,6	script	Guardi„o#gon2	780,{
+	mes "[Guardi„o]";
 	mes "Bem vindo! Sou um humilde servidor";
 	mes "de SaYumMoon, o governador";
 	mes "dessa cidade.";
 	next;
-	mes "[Guardi√£o]";
-	mes "Acredito que n√£o v√° acontecer";
-	mes "mas, se voc√™ agir de maneira suspeita,";
+	mes "[Guardi„o]";
+	mes "Acredito que n„o v· acontecer";
+	mes "mas, se vocÍ agir de maneira suspeita,";
 	mes "serei obrigado a te prender. ";
 	next;
-	mes "[Guardi√£o]";
-	mes "Mas n√£o se preocupe.";
-	mes "N√£o acredito que isso v√° acontecer.";
+	mes "[Guardi„o]";
+	mes "Mas n„o se preocupe.";
+	mes "N„o acredito que isso v· acontecer.";
 	mes "Aproveite sua estada!";
 	close;
 }
@@ -250,65 +250,65 @@ gon_in,73,82,5	script	SungChul Ki#gon	778,{
 		mes "............";
 		next;
 		mes "[SungChul Ki]";
-		mes "Hmmm... Isto √© algo";
+		mes "Hmmm... Isto È algo";
 		mes "preocupante, com certeza.";
 		close;
 	}
 	if (nakha == 3) {
 		set cha,1;
-		mes "Meu nome √© SungChul Ki.";
-		mes "Meu trabalho √© fazer ch√°. ";
+		mes "Meu nome È SungChul Ki.";
+		mes "Meu trabalho È fazer ch·. ";
 		mes "Eu me dedico, dia e noite,";
-		mes "em fazer o melhor ch√° ";
+		mes "em fazer o melhor ch· ";
 		mes "de toda a cidade.";
 		next;
 		mes "[SungChul Ki]";
 		mes "Hmm, mas ultimamente, tem sido";
-		mes "dif√≠cil atingir a perfei√ß√£o do ch√°. ";
+		mes "difÌcil atingir a perfeiÁ„o do ch·. ";
 		mes "eu preciso de alguns";
 		mes "ingredientes especiais...";
 		next;
 		mes "[SungChul Ki]";
 		mes "Eu ouvi rumores que, com uma certa serpente,";
-		mes "√© poss√≠vel conseguir um ingrediente que";
-		mes "faria o ch√° mais saboroso j√° feito.";
+		mes "È possÌvel conseguir um ingrediente que";
+		mes "faria o ch· mais saboroso j· feito.";
 		mes "Mas onde eu acho e como eu capturo uma dessas?";
-		mes "Eu n√£o sei...";
+		mes "Eu n„o sei...";
 		close;
 	}
 }
 
 gon_in,173,27,3	script	KuHa Woo#gon	774,{
 	mes "[KuHa Woo]";
-	mes "√â claro que ningu√©m vende bebidas alco√≥licas ";
-	mes "para uma crian√ßa como eu.";
+	mes "… claro que ninguÈm vende bebidas alcoÛlicas ";
+	mes "para uma crianÁa como eu.";
 	mes "Mas os adultos parecem gostar.";
-	mes "Como ser√° o gosto?";
+	mes "Como ser· o gosto?";
 	next;
 	mes "[KuHa Woo]";
-	mes "Mas isso √© bobagem!";
-	mes "Crian√ßas n√£o devem beber √°lcool. ";
-	mes "O que eu gosto mesmo √© do delicioso ch√° ";
-	mes "que √© produzido aqui na minha cidade.";
-	mes "S√≥ de pensar eu j√° fico com √°gua na boca.";
+	mes "Mas isso È bobagem!";
+	mes "CrianÁas n„o devem beber ·lcool. ";
+	mes "O que eu gosto mesmo È do delicioso ch· ";
+	mes "que È produzido aqui na minha cidade.";
+	mes "SÛ de pensar eu j· fico com ·gua na boca.";
 	close;
 }
 
 gonryun,166,196,3	script	Soldado#gon	780,{
 	if (b_sword < 7) {
 		mes "[WaGuo]";
-		mes "Voc√™ sabia que";
-		mes "esse local foi um santu√°rio? ";
-		mes "H√° muito tempo atr√°s, ";
+		mes "VocÍ sabia que";
+		mes "esse local foi um santu·rio? ";
+		mes "H· muito tempo atr·s, ";
 		mes "depois que foi abandonado pelos monges";
-		mes "que buscavam o reino dos c√©us, ";
-		mes "ele se tornou a morada de v√°rios monstros.";
+		mes "que buscavam o reino dos cÈus, ";
+		mes "ele se tornou a morada de v·rios monstros.";
 		close;
 	}
 	else if ((b_sword > 6) && (b_sword < 10)) {
-		mes "A noite de ontem foi barulhenta, n√£o? ";
-		mes "Foi por causa de um ladr√£o.";
-		mes "mais barulhenta que a √©poca de festas.";
+		mes "A noite de ontem foi barulhenta, n„o? ";
+		mes "Foi por causa de um ladr„o.";
+		mes "mais barulhenta que a Època de festas.";
 		mes "Eu mal consegui dormir...";
 		next;
 		mes "[WaGuo]";
@@ -316,27 +316,27 @@ gonryun,166,196,3	script	Soldado#gon	780,{
 		mes "Na noite passada, durante";
 		mes "meu turno, eu vi de relance, ";
 		mes "algo estranho correndo ";
-		mes "na dire√ß√£o do templo.";
+		mes "na direÁ„o do templo.";
 		next;
 		mes "[WaGuo]";
-		mes "Se movia t√£o r√°pido que";
+		mes "Se movia t„o r·pido que";
 		mes "eu nem consegui pensar em seguir.";
 		mes "Eu acho que era uma criatura poderosa.";
 		mes "Mas parecia humano.";
-		mes "O que ser√° que era?";
+		mes "O que ser· que era?";
 		close;
 	}
 	mes "[WaGuo]";
-	mes "Voc√™ sabia que";
-	mes "esse local foi um santu√°rio? ";
-	mes "H√° muito tempo atr√°s, ";
+	mes "VocÍ sabia que";
+	mes "esse local foi um santu·rio? ";
+	mes "H· muito tempo atr·s, ";
 	mes "depois que foi abandonado pelos monges";
-	mes "que buscavam o reino dos c√©us, ";
-	mes "ele se tornou a morada de v√°rios monstros.";
+	mes "que buscavam o reino dos cÈus, ";
+	mes "ele se tornou a morada de v·rios monstros.";
 	next;
 	mes "[WaGuo]";
-	mes "A cidade est√° se preparando para o festival,";
-	mes "mas esses preparativos est√£o tomando muito tempo...";
+	mes "A cidade est· se preparando para o festival,";
+	mes "mas esses preparativos est„o tomando muito tempo...";
 	mes "Isso nunca aconteceu antes.";
 	close;
 }
@@ -344,22 +344,22 @@ gonryun,166,196,3	script	Soldado#gon	780,{
 gonryun,169,71,3	script	Guia#gon	770,{
 	mes "[LeeHee Min]";
 	mes "Bem vindo!";
-	mes "Voc√™ gostou da paisagem";
-	mes "no seu caminho para c√°? ";
+	mes "VocÍ gostou da paisagem";
+	mes "no seu caminho para c·? ";
 	mes "O que achou daquelas pequenas";
-	mes "constru√ß√µes no caminho?";
+	mes "construÁıes no caminho?";
 	next;
 	mes "[LeeHee Min]";
-	mes "S√£o miniaturas das cidades";
+	mes "S„o miniaturas das cidades";
 	mes "do reino de Rune-Midgard.";
-	mes "Voc√™ pode olhar para todas as";
-	mes "cidades de uma s√≥ vez.";
-	mes "Foi um trabalho muito dif√≠cil. ";
-	mes "Mas n√£o √© uma obra de arte?";
+	mes "VocÍ pode olhar para todas as";
+	mes "cidades de uma sÛ vez.";
+	mes "Foi um trabalho muito difÌcil. ";
+	mes "Mas n„o È uma obra de arte?";
 	next;
 	mes "[LeeHee Min]";
-	mes "Se voc√™ souber apreciar,";
-	mes "voc√™ ver√° muitas paisagens";
+	mes "Se vocÍ souber apreciar,";
+	mes "vocÍ ver· muitas paisagens";
 	mes "bonitas pela cidade.";
 	close;
 }

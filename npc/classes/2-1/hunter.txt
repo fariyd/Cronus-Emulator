@@ -1,4 +1,4 @@
-﻿//===== rAthena Script ======================================= 
+//===== rAthena Script ======================================= 
 //= Hunter Job Quest
 //===== By: ================================================== 
 //= EREMES THE CANIVALIZER (Aegis)Translated by yoshiki (Aegis)
@@ -34,7 +34,7 @@
 //= 2.3a 7 official sets of Demon Hunter,thx to Dr.Evil [Lupus]
 //= 2.4a Added missing next;, missing NPC names [Lupus]
 //= 2.5 "strcharinfo" -> "strcharinfo(0)" [FlavioJS]
-//= 2.6 Fixed 3� Test. [Samuray22]
+//= 2.6 Fixed 3? Test. [Samuray22]
 //	-Changed Timers from 3 to 1 minute.
 //	-Changed "Job Change Monsters".
 //	-Thanks to ultradamage.

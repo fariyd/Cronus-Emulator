@@ -27,7 +27,7 @@ set .@pago,0; //0 = grátis, 1 = pago
 //=================================
 
 	if(.@pago) {
-		if(MaxHp-Hp && MaxSp-Sp){
+		if(MaxHp-Hp && MaxSp-Sp) {
 			switch(select("Curar HP ["+(MaxHp-Hp)+"z]","Curar SP ["+(MaxSp-Sp)+"z]","Curar ambos ["+(MaxHp-Hp+MaxSp-Sp)+"z]","Cancelar")){
 				case 1: CallSub cura,Hp,(MaxHp-Hp);
 				case 2: CallSub cura,Sp,(MaxSp-Sp);
@@ -49,7 +49,7 @@ set .@pago,0; //0 = grátis, 1 = pago
 
 cura:
 	if (Zeny < getarg(1)){
-		mes "[Curandeira]";
+		mes "["+strnpcinfo(1)+"]";
 		mes "Oh, você não tem todo o dinheiro necessário.";
 		mes "Desculpe, mas não posso curá-lo.";
 		close;	

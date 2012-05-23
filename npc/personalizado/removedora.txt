@@ -26,7 +26,7 @@ prt_in,28,73,4	script	Velha Sábia	863,{
 set .@falhar, 0;	// A remoção pode falhar? [1=Sim/0=Não]
 //============================================================
 
-	mes "[Velha Sábia]";
+	mes "["+strnpcinfo(1)+"]";
 	mes "Eu tenho o poder místico de remover cartas colocadas em equipamentos. O que acha disso?";
 	next;
 	switch (select ("Me ajudaria muito!:O que você quer em troca?:Não acho nada interessante...")) {
@@ -64,11 +64,11 @@ set .@falhar, 0;	// A remoção pode falhar? [1=Sim/0=Não]
 				if (select ("O item:As cartas:Mudei de ideia") == 3) close;
 				set .@escolhafalhar, @menu;
 				next;
-				mes "[Velha Sábia]";
+				mes "["+strnpcinfo(1)+"]";
 			}
 			mes "Muito bem, vamos começar!";
 			next;
-			mes "[Velha Sábia]";
+			mes "["+strnpcinfo(1)+"]";
 			set Zeny, Zeny - (200000+(getequipcardcnt(.@menu)*25000));
 			delitem 1000, 1;
 			delitem 715, 1;

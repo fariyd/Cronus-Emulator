@@ -17,7 +17,7 @@
 //===== Descrição: ===================================================
 //= Tinge e troca o estilo do cabelo e muda a cor da roupa.
 //===== Comentários Adicionais: ======================================
-//= 1.2 Pequena Modificação. [Axl]
+//= 1.2 Pequenas Modificações. [Axl]
 //====================================================================
 
 prontera,170,180,1	script	Estilista	122,{

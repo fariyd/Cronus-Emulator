@@ -11,13 +11,14 @@
 //===== Por: =========================================================
 //= Reply.
 //===== Versão Atual: ================================================
-//= 1.5
+//= 1.5a
 //===== Compatível com: ==============================================
 //= Cronus GIT
 //===== Descrição: ===================================================
 //= Muda a classe do personagem.
 //===== Comentários Adicionais: ======================================
 //= 1.5 Pequenas modificações [Axl]
+//= 1.5a Comandos de checagem corrigidos [Axl]
 //====================================================================
 
 prontera,153,193,4	script	Mestra das Classes	864,{
@@ -30,7 +31,7 @@ prontera,153,193,4	script	Mestra das Classes	864,{
 	}
 	if (SkillPoint)
 		callsub S_MesClose, "Você precisa utilizar todos os seus pontos de habilidade antes de mudar de classe.";
-	if (checkcart() || checkfalcon() || checkriding() || checkmado() || checkwarg())
+	if (checkcart() || checkfalcon() || checkriding() || checkmadogear() || checkwug())
 		callsub S_MesClose, "Você não pode mudar de classe enquanto estiver utilizando Falcão, Carrinho ou PecoPeco.";
 	if (!Class || Class == 4023) {
 		callsub F_ReqBaseJobLevel, 10;

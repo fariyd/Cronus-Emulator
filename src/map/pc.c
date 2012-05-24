@@ -7217,6 +7217,19 @@ int pc_setriding(TBL_PC* sd, int flag)
 
 	return 0;
 }
+/*==========================================
+ * Cronus-Emulator [Axl]
+ *------------------------------------------*/
+int pc_setwug(TBL_PC* sd, int flag) 
+{
+if( flag ){
+	if (pc_checkskill(sd,RA_WUGMASTERY) > 0)
+		pc_setoption(sd,sd->sc.option | OPTION_WUG);
+	} else if (pc_iswug(sd)) {
+		pc_setoption(sd,sd->sc.option&~OPTION_FALCON);
+	}
+	return 0;
+}
 
 /*==========================================
  * 

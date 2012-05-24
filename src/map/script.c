@@ -7894,6 +7894,29 @@ BUILDIN_FUNC(setriding)
 	return 0;
 }
 
+/*==========================================
+ * Cronus-Emulator [Axl]
+ * Adiciona ou remove Wug/Warg
+ * setwug <flag>; 
+ * setwug;
+ *------------------------------------------*/
+BUILDIN_FUNC(setwug) 
+{ 
+	int flag = 1; 
+	TBL_PC* sd; 
+
+	sd = script_rid2sd(st); 
+	if( sd == NULL ) 
+		return 0;
+
+	if( script_hasdata(st,2) ) 
+		flag = script_getnum(st,2); 
+
+	pc_setwug(sd, flag); 
+
+	return 0; 
+}
+
 /// Returns if the player has a warg.
 ///
 /// checkwug() -> <bool>
@@ -16365,6 +16388,7 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(checkfalcon,""),
 	BUILDIN_DEF(setriding,"?"),
 	BUILDIN_DEF(checkriding,""),
+	BUILDIN_DEF(setwug,""), /* Cronus Emulator - [Axl] */
 	BUILDIN_DEF(checkwug,""),
 	BUILDIN_DEF(checkmadogear,""),
 	BUILDIN_DEF(setmadogear,""),

@@ -11,13 +11,15 @@
 //===== Por: =========================================================
 //= Rafael (baseado na do Mehah, oficial do cronus)
 //===== Versão Atual: ================================================
-//= 1.4
+//= 1.5
 //===== Compatível com: ==============================================
 //= Cronus GIT
 //===== Descrição: ===================================================
 //= Aluga ao jogador falcão, peco, carrinho, mado, warg ou grifo.
 //===== Comentários Adicionais: ======================================
 //= 1.4 Pequenas modificações [Axl]
+//= 1.5 Comandos de checagem/Adição corrigidos [Axl]
+//= - Corrigido problema referente a montaria do RK
 //====================================================================
 
 prontera,130,196,5	script	Garota Negociante	90,{
@@ -34,13 +36,13 @@ prontera,130,196,5	script	Garota Negociante	90,{
 		close;
 	} 
 	if( BaseClass == 5 || Class == 23 ) {
-		if( checkcart() && checkmado() )
+		if( checkcart() && checkmadogear() )
 			callsub S_OnExit;
 		if( getskilllv(2255) ) {
 			mes "O que você deseja alugar?";
 			if( select("Carrinho:Mado") == 2 ) {
-				if( !checkmado() )
-					setmado;
+				if( !checkmadogear() )
+					setmadogear;
 				if( checkcart() )
 					close;
 			}
@@ -53,18 +55,20 @@ prontera,130,196,5	script	Garota Negociante	90,{
 			callsub S_OnExit;
 		}
 	}
-	else if( BaseClass == 1 && !checkriding() && ( getskilllv(63) || getskilllv(2007) ) )
+	else if( Class == 4073 || Class == 4066 && !checkriding() && ( getskilllv(63) || getskilllv(2007) ) )
 		setriding;
+	else if( Class == 4060 || Class == 4054 && !checkriding() && ( getskilllv(63) || getskilllv(2007) ) )
+		setdragon;
 	else if( BaseClass == 3 || BaseClass == 11 ) {
 		if( getskilllv(2241) ) {
-			if( checkfalcon() || checkwarg() )
+			if( checkfalcon() || checkwug() )
 				callsub S_OnExit;
 			mes "O quê deseja alugar?";
 			next;
 			if( select("Falcão:Warg") == 1 )
 				setfalcon;
 			else
-				setwarg;
+				setwug;
 		} 
 		else if( getskilllv(127) && !checkfalcon() && Class < 4054 )
 			setfalcon;

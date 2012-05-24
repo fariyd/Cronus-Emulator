@@ -788,6 +788,7 @@ int pc_setoption(struct map_session_data *,int);
 int pc_setcart(struct map_session_data* sd, int type);
 int pc_setfalcon(struct map_session_data* sd, int flag);
 int pc_setriding(struct map_session_data* sd, int flag);
+int pc_setwug(struct map_session_data* sd, int flag); /* Cronus-Emulator [Axl] */
 int pc_setmadogear(struct map_session_data* sd, int flag);
 int pc_changelook(struct map_session_data *,int,int);
 int pc_equiplookall(struct map_session_data *sd);

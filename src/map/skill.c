@@ -790,11 +790,11 @@ int skill_additional_effect (struct block_list* src, struct block_list *bl, int 
 			struct status_change_entry *sce;
 			// Enchant Poison gives a chance to poison attacked enemies
 			if((sce=sc->data[SC_ENCPOISON])) //Don't use sc_start since chance comes in 1/10000 rate.
-				status_change_start(bl,SC_POISON,sce->val2, sce->val1,0,0,0,
+				status_change_start(bl,SC_POISON,sce->val2, sce->val1,src->id,0,0,
 					skill_get_time2(AS_ENCHANTPOISON,sce->val1),0);
 			// Enchant Deadly Poison gives a chance to deadly poison attacked enemies
 			if((sce=sc->data[SC_EDP]))
-				sc_start4(bl,SC_DPOISON,sce->val2, sce->val1,0,0,0,
+				sc_start4(bl,SC_DPOISON,sce->val2, sce->val1,src->id,0,0,
 					skill_get_time2(ASC_EDP,sce->val1));
 		}
 	}
@@ -821,7 +821,7 @@ int skill_additional_effect (struct block_list* src, struct block_list *bl, int 
 			skilllv = pc_checkskill(sd, TF_POISON);
 	case TF_POISON:
 	case AS_SPLASHER:
-		if(!sc_start(bl,SC_POISON,(4*skilllv+10),skilllv,skill_get_time2(skillid,skilllv))
+		if(!sc_start2(bl,SC_POISON,(4*skilllv+10),skilllv,src->id,skill_get_time2(skillid,skilllv))
 			&&	sd && skillid==TF_POISON
 		)
 			clif_skill_fail(sd,skillid,USESKILL_FAIL_LEVEL,0);
@@ -10897,7 +10897,7 @@ int skill_unit_onplace_timer (struct skill_unit *src, struct block_list *bl, uns
 			if (sg->unit_id != UNT_FIREPILLAR_ACTIVE)
 				clif_changetraplook(&src->bl, sg->unit_id==UNT_LANDMINE?UNT_FIREPILLAR_ACTIVE:UNT_USED_TRAPS);
 			src->range = -1; //Disable range so it does not invoke a for each in area again.
-			sg->limit=DIFF_TICK(tick,sg->tick)+1500;
+			sg->limit=DIFF_TICK(tick,sg->tick)+1500 + (sg->unit_id== UNT_CLUSTERBOMB?1000:0);// Cluster Bomb has 1s to disappear once activated.
 			break;
 
 		case UNT_TALKIEBOX:
@@ -13751,7 +13751,7 @@ int skill_detonator(struct block_list *bl, va_list ap)
 			clif_changetraplook(bl,unit_id == UNT_FIRINGTRAP ? UNT_DUMMYSKILL : UNT_USED_TRAPS);
 			unit->group->unit_id = UNT_USED_TRAPS;
 			unit->range = -1;
-			unit->group->limit = DIFF_TICK(gettick(),unit->group->tick) + (unit_id == UNT_TALKIEBOX ? 5000 : 1500);
+			unit->group->limit = DIFF_TICK(gettick(),unit->group->tick) + (unit_id == UNT_TALKIEBOX ? 5000 : (unit_id == UNT_CLUSTERBOMB ? 2500 : 1500) );
 			break;
 	}
 	return 0;
@@ -13928,8 +13928,8 @@ static int skill_trap_splash (struct block_list *bl, va_list ap)
 		case UNT_FIRINGTRAP:
 		case UNT_ICEBOUNDTRAP:
 		case UNT_CLUSTERBOMB:
-			if(skill_attack(BF_MISC,ss,bl,bl,sg->skill_id,sg->skill_lv,tick,sg->val1))
-				clif_skill_damage(bl,bl,tick,0,0,-30000,1,sg->skill_id,sg->skill_lv,5);
+			if(skill_attack(BF_MISC,ss,src,bl,sg->skill_id,sg->skill_lv,tick,sg->val1))
+				clif_skill_damage(src,bl,tick,0,0,-30000,1,sg->skill_id,sg->skill_lv,5);
 			break;
 		case UNT_REVERBERATION:
 			skill_attack(BF_WEAPON,ss,src,bl,WM_REVERBERATION_MELEE,sg->skill_lv,tick,0);

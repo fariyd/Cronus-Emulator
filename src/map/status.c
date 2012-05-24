@@ -6850,11 +6850,15 @@ int status_change_start(struct block_list* bl,enum sc_type type,int rate,int val
 
 		case SC_DPOISON:
 		//Lose 10/15% of your life as long as it doesn't brings life below 25%
-		if (status->hp > status->max_hp>>2)
-		{
+		if (status->hp > status->max_hp>>2){
 			int diff = status->max_hp*(bl->type==BL_PC?10:15)/100;
 			if (status->hp - diff < status->max_hp>>2)
 				diff = status->hp - (status->max_hp>>2);
+			if( val2 && bl->type == BL_MOB ) { 
+ 					struct block_list* src = map_id2bl(val2);  
+ 					if( src )  
+ 							mob_log_damage((TBL_MOB*)bl,src,diff);  
+	        } 
 			status_zap(bl, diff, 0);
 		}
 		// fall through
@@ -9180,6 +9184,11 @@ int status_change_timer(int tid, unsigned int tick, int id, intptr_t data)
 	case SC_DPOISON:
 		if (--(sce->val3) > 0) {
 			if (!sc->data[SC_SLOWPOISON]) {
+				if( sce->val2 && bl->type == BL_MOB ) { 
+ 						struct block_list* src = map_id2bl(sce->val2);  
+ 		                if( src )  
+ 								mob_log_damage((TBL_MOB*)bl,src,sce->val4);  
+ 	            }
 				map_freeblock_lock();
 				status_zap(bl, sce->val4, 0);
 				if (sc->data[type]) { // Check if the status still last ( can be dead since then ).
@@ -9533,12 +9542,12 @@ int status_change_timer(int tid, unsigned int tick, int id, intptr_t data)
 		if( --(sce->val4) >= 0 )
 		{
 			struct block_list *src = map_id2bl(sce->val3);
-			int damage = 3 * status_get_max_hp(bl) / 100; // Non Elemental Damage
-			if( status )
-				damage += battle_attr_fix(NULL, bl, sce->val2, ELE_FIRE, status->def_ele, status->ele_lv);
+			int damage = 1000 + 3 * status_get_max_hp(bl) / 100; // Deals fixed (1000 + 3%*MaxHP)
 
 			map_freeblock_lock();
-			status_fix_damage(src,bl,damage,clif_damage(bl,bl,tick,0,0,damage,0,0,0));
+			clif_damage(bl,bl,tick,0,0,damage,1,9,0); //damage is like endure effect with no walk delay 
+ 			status_damage(src, bl, damage, 0, 0, 1);
+
 			if( sc->data[type]){ // Target still lives. [LimitLine]
 				sc_timer_next(2000 + tick, status_change_timer, bl->id, data);
 			}

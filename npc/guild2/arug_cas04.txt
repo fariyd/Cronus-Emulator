@@ -2249,7 +2249,7 @@ arug_cas04,148,103,4	script	Gefn#LF_ar04_10::LF_ar04_02	722,{
 		}
 	}
 	end;
-
+OnInterIfInitOnce:
 OnRecvCastlear04:
 	FlagEmblem GetCastleData("arug_cas04",1);
 	end;
@@ -2917,7 +2917,7 @@ aru_gld,306,359,6	script	Gefn#flag_ar04_1::ar04_Flag	722,{
 		mes "os períodos de Guerra.";
 		close;
 	}
-
+OnInterIfInitOnce:
 OnRecvCastlear04:
 	FlagEmblem GetCastleData("arug_cas04",1);
 	end;
@@ -2953,7 +2953,7 @@ aru_gld,301,318,4	script	Gefn#flag_ar04_3::ar04_Flag2	722,{
 		mes "os períodos de Guerra.";
 		close;
 	}
-
+OnInterIfInitOnce:
 OnRecvCastlear04:
 	FlagEmblem GetCastleData("arug_cas04",1);
 	end;

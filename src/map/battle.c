@@ -550,18 +550,17 @@ int battle_calc_damage(struct block_list *src,struct block_list *bl,struct Damag
 		if( sc->data[SC_AETERNA] && skill_num != PF_SOULBURN )
 		{
 			#ifdef RENEWAL
-				if(sce!=sc->data[SC_RAID])//Raid e Aeterna não funcionan juntos[Sicks]
-			 	{
+				if(sc->data[SC_RAID])//Raid e Aeterna não funcionan juntos[Sicks]
+			 	status_change_end(bl, SC_AETERNA, INVALID_TIMER);
 			#endif
 				if( src->type != BL_MER || skill_num == 0 )
 				damage <<= 1; // Lex Aeterna only doubles damage of regular attacks from mercenaries
 
 				if( skill_num != ASC_BREAKER || !(flag&BF_WEAPON) )
 				status_change_end(bl, SC_AETERNA, INVALID_TIMER); //Shouldn't end until Breaker's non-weapon part connects.
-				}
-			}
+				
+		}
 			#ifdef RENEWAL
-				if((sce=sc->data[SC_RAID]) && skill_num != PF_SOULBURN)
 					if(skill_num == 0)
 					{//Só funciona com ataques normais[Sicks]
 
@@ -1231,7 +1230,7 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src,struct blo
 	//Initial flag
 	flag.rh=1;
 	flag.weapon=1;
-	flag.infdef=(tstatus->mode&MD_PLANT&&skill_num!=RA_CLUSTERBOMB?1:0);
+	flag.infdef=(tstatus->mode&MD_PLANT?1:0);
 
 	//Initial Values
 	wd.type=0; //Normal attack
